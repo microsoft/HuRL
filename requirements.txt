@@ -1,0 +1,4 @@
+# conda create -n hurl pip python=3.7
+garage==2021.3.0
+mujoco_py==2.0.2.8
+gym==0.17.2
