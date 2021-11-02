@@ -41,7 +41,11 @@ class SAC(garageSAC):
         assert hasattr(self, '_discount')
 
         self._lambd = lambd if isinstance(lambd, LambdaScheduler) else LambdaScheduler(lambd)
-        self._heuristic = heuristic or (lambda x : np.zeros(len(x)))
+        # HACK
+        if heuristic=='GIVEN':
+             self._heuristic = heuristic
+        else:
+            self._heuristic = heuristic or (lambda x : np.zeros(len(x)))
         self._discount0 = self._discount  # save the original discount
         self._discount = self.guidance_discount # we will update self._discount
         self._reward_avg = MaxAvg(rate=reward_avg_rate, scale_target=1)
@@ -78,17 +82,24 @@ class SAC(garageSAC):
         return hs*(1-terminals)
 
     def reshape_rewards(self, rewards, next_obs, terminals, obs=None):
+        # Get heuristic
+        if self._heuristic == 'GIVEN':
+            # Load it from observation
+            hs = obs[:,-1:]
+            hs_next = next_obs[:,-1:]
+        else:
+            if self._reward_shaping_mode=='pbrs':
+                hs = self._heuristic(obs)
+                hs = hs[...,np.newaxis]
+            hs_next = self.heuristic(next_obs, terminals)
+
         if self._reward_shaping_mode=='hurl':
-            hs = self.heuristic(next_obs, terminals)
-            assert rewards.shape == hs.shape == terminals.shape
-            return rewards + (self._discount0-self._discount)*hs
+            assert rewards.shape == hs_next.shape == terminals.shape
+            return rewards + (self._discount0-self._discount)*hs_next
         elif self._reward_shaping_mode=='pbrs':
             # This is a pbrs version of hurl. Setting lambda=1 recovers the classic pbrs.
-            hs_next = self.heuristic(next_obs, terminals)
-            hs_now = self._heuristic(obs)
-            hs_now = hs_now[...,np.newaxis]
-            assert rewards.shape == hs_next.shape == terminals.shape == hs_now.shape
-            return rewards + self._discount0 * hs_next - hs_now
+            assert rewards.shape == hs_next.shape == terminals.shape == hs.shape
+            return rewards + self._discount0*hs_next - hs
 
     def train(self, trainer):
         """Obtain samplers and start actual training for each epoch.
@@ -116,15 +127,27 @@ class SAC(garageSAC):
                     trainer.step_itr, batch_size)
                 path_returns = []
                 for path in trainer.step_episode:
+                    if self._heuristic == 'GIVEN':
+                       # HACK hack the next_observations to embed the heuristic information
+                        hs = path['env_infos']['heuristic']
+                        hs_next = hs.copy()
+                        hs_next[:-1] = hs_next[1:]
+                        hacked_observation = np.concatenate([path['observations'], np.expand_dims(hs,1)], axis=1)
+                        hacked_next_observation = np.concatenate([path['next_observations'], np.expand_dims(hs_next,1)], axis=1)
+                    else:
+                        hacked_observation = path['observations']
+                        hacked_next_observation = path['next_observations']
+
                     self.replay_buffer.add_path(
-                        dict(observation=path['observations'],
+                        dict(observation=hacked_observation,
                              action=path['actions'],
                              reward=path['rewards'].reshape(-1, 1),
-                             next_observation=path['next_observations'],
+                             next_observation=hacked_next_observation,
                              terminal=np.array([
                                  step_type == StepType.TERMINAL
                                  for step_type in path['step_types']
-                             ]).reshape(-1, 1)))
+                             ]).reshape(-1, 1)),
+                             )
                     path_returns.append(sum(path['rewards']))
                     # update
                     self._reward_avg.update(path['rewards'])  # for logging
@@ -169,7 +192,7 @@ class SAC(garageSAC):
             samples = self.replay_buffer.sample_transitions(
                 self._buffer_batch_size)
 
-            # HACK Reshape and normalize the rewards
+            # Reshape
             samples = copy.deepcopy(samples)
             shaped_rewards = self.reshape_rewards(rewards=samples['reward'],
                                                   next_obs=samples['next_observation'],
@@ -179,6 +202,9 @@ class SAC(garageSAC):
             self._reward_ratio.update(vals=np.sum(np.abs(shaped_rewards)/(1e-7+np.abs(samples['reward']))),
                                       weight=len(shaped_rewards))
             samples['reward'] = shaped_rewards
+            if self._heuristic == 'GIVEN':  # unhack the next_observation
+                samples['observation'] = samples['observation'][:,:-1]
+                samples['next_observation'] = samples['next_observation'][:,:-1]
             samples = as_torch_dict(samples)
             policy_loss, qf1_loss, qf2_loss = self.optimize_policy(samples)
             self._update_targets()
@@ -209,7 +235,10 @@ class SAC(garageSAC):
 
         # HACK: Log the heuristic values
         terminals = eval_episodes.step_types== StepType.TERMINAL
-        eval_episodes.env_infos['h'] =self.heuristic(eval_episodes.next_observations, terminals)
+        if self._heuristic=='GIVEN': # for logging
+            eval_episodes.env_infos['h'] = eval_episodes.env_infos['heuristic']
+        else:
+            eval_episodes.env_infos['h'] =self.heuristic(eval_episodes.next_observations, terminals)
 
 
         last_return = log_performance(epoch,

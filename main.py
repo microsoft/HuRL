@@ -16,6 +16,39 @@ from hurl import lambda_schedulers
 from hurl.heuristics import load_policy_from_snapshot, load_heuristic_from_snapshot
 
 
+
+def load_env(env_name):
+
+    if env_name=='Sparse-Reacher-v2':
+        #  Create a sparse reward, long horizon reacher env
+        from gym.envs.mujoco.reacher import ReacherEnv
+        class SparseReacherEnv(ReacherEnv):
+            def step(self, a):
+                thre = 0.01
+                vec = self.get_body_com("fingertip") - self.get_body_com("target")
+                reward_dist = -np.linalg.norm(vec)
+                reward_ctrl = -np.square(a).sum()
+                reward_sparse = -float(reward_dist<-thre)
+                reward = reward_sparse
+                self.do_simulation(a, self.frame_skip)
+                ob = self._get_obs()
+                done = False
+                heuristic = reward_sparse + reward_dist/thre
+                return ob, reward, done, dict(reward_dist=reward_dist, reward_ctrl=reward_ctrl, heuristic=heuristic)
+
+        _env = gym.make('Reacher-v2')
+        env = SparseReacherEnv()
+        env.spec = _env.env.spec
+        env.spec.max_episode_steps = 500
+        from gym.wrappers.time_limit import TimeLimit
+        env = TimeLimit(env, max_episode_steps=env.spec.max_episode_steps)
+
+    else:
+        env = gym.make(env_name)
+
+    env = GymEnv(env, is_image=False)
+    return env
+
 def offline_train(ctxt=None,
                   *,
                   algo_name,  # algorithm name
@@ -92,7 +125,7 @@ def online_train(ctxt=None,
     set_seed(seed)
 
     # Wrap the gym env into our*gym* wrapper first and then into the standard garage wrapper.
-    env = GymEnv(gym.make(env_name))
+    env = load_env(env_name)
 
     # Initialize the algorithm
     init_policy = None if init_policy_fun is None else init_policy_fun()
@@ -408,12 +441,12 @@ def run_exp(*,
         assert data_itr is not None and data_path is not None
         if not load_pretrained_data:
             import datetime
-            batch_log_path = '_tmp_srl_data_'+datetime.datetime.now().strftime("%d-%m-%Y-%H-%M-%S")
+            batch_log_path = '_tmp_hurl_data_'+datetime.datetime.now().strftime("%d-%m-%Y-%H-%M-%S")
         else:
             batch_log_path = data_path
 
 
-    env = GymEnv(gym.make(env_name))
+    env = load_env(env_name)
 
     if discount is None:
         discount = 1 -1/env.spec.max_episode_length
@@ -425,17 +458,21 @@ def run_exp(*,
         # Load heuristic and init_policy
         try:
             if use_heuristic:
-                heuristic = train_heuristics(
-                                batch_log_path,
-                                data_itr,
-                                algo_name=h_algo_name,
-                                discount=discount,
-                                n_epochs=h_n_epoch,
-                                batch_size=batch_size,
-                                seed=seed,
-                                use_raw_snapshot=use_raw_snapshot,
-                                **kwargs
-                                )
+                # HACK
+                if h_algo_name=='GIVEN':
+                    heuristic = 'GIVEN'
+                else:
+                    heuristic = train_heuristics(
+                                    batch_log_path,
+                                    data_itr,
+                                    algo_name=h_algo_name,
+                                    discount=discount,
+                                    n_epochs=h_n_epoch,
+                                    batch_size=batch_size,
+                                    seed=seed,
+                                    use_raw_snapshot=use_raw_snapshot,
+                                    **kwargs
+                                    )
             if warmstart_policy:
                 init_policy = pretrain_policy(
                                 batch_log_path,
@@ -502,7 +539,62 @@ def run_exp(*,
 
 
 if __name__ == '__main__':
-    # Parse command line inputs.
+    """
+        Codes to reproduce the experimental results of the Heuristic Guided
+        Reinforcement Learning paper published in NeurIPS 2021.
+
+
+        Arguments:
+            env_name: Gym environment name. Currently supported envs:
+                'HalfCheetah-v2', 'Swimmer-v2', 'Humanoid-v2', 'Hopper-v2',
+                'Sparse-Reacher-v2' for HuRL. Other environments can be used but the
+                user needs to provide the behavior policies or heuristics.
+
+            w_algo_name: Algorithm to warm start the learning. 'None' or 'BC'.
+
+            h_algo_name: Algorithm to compute the heuristic. 'None', 'VPG', or 'GIVEN'.
+                To run hurl, use 'GIVEN' for 'Sparse-Reacher-v2'; use 'VPG' for other
+                supported environments, which would compute a heuristic by Monte-Carlo regression.
+
+            reward_shaping_mode: Reward shaping method. 'hurl', or 'pbrs'. This affects how the
+                reward is shaped, when `h_algo_name` is not 'None'.
+
+
+        To run the vanilla SAC, set `h_algo_name` as 'None'. Otherwise, it runs
+        HuRL. The tuned hyperparameters used in the paper are loaded to run the
+        experiments.
+
+
+    """
+
+    import argparse
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--env_name', type=str, default='HalfCheetah-v2')
+    parser.add_argument('--w_algo_name', type=str, default='BC')  # 'BC' or 'None'
+    parser.add_argument('--h_algo_name', type=str, default='VPG')  # 'VPG' or 'None' or 'GIVEN'
+    parser.add_argument('--reward_shaping_mode', type=str, default='hurl')  # 'hurl' or 'pbrs'
+
+    from hurl_config import default_config
+    args = parser.parse_args()
+    args.h_algo_name = None if args.h_algo_name=='None' else args.h_algo_name
+    args.w_algo_name = None if args.w_algo_name=='None' else args.w_algo_name
+
+    if args.env_name=='Sparse-Reacher-v2':
+        args.w_algo_name = None  # there is no batch data for warm start.
+
+    config = default_config(env_name=args.env_name,
+                            h_algo_name=args.h_algo_name,
+                            w_algo_name=args.w_algo_name)
+
+    config['reward_shaping_mode'] = args.reward_shaping_mode
+    if config['reward_shaping_mode']=='pbrs':
+        config['lambd'] = 1.0
+
+    # Run experiment.
+    run_exp(**config)
+
+
+    # The below can be uncommented for finer controls.
     # import argparse
     # from hurl.utils import str2bool
     # parser = argparse.ArgumentParser()
@@ -543,23 +635,3 @@ if __name__ == '__main__':
     # parser.add_argument('--reward_scale', type=float, default=1.0)
 
     # config = vars(parser.parse_args())
-
-    import argparse
-    parser = argparse.ArgumentParser()
-    parser.add_argument('-e', '--env_name', type=str, default='HalfCheetah-v2')
-    parser.add_argument('--w_algo_name', type=str, default='BC')  # 'BC' or ''
-    parser.add_argument('--h_algo_name', type=str, default='VPG')  # 'VPG' or ''
-
-    from hurl_config import default_config
-    args = parser.parse_args()
-
-    args.h_algo_name = None if args.h_algo_name=='' else args.h_algo_name
-    args.w_algo_name = None if args.w_algo_name=='' else args.w_algo_name
-
-
-    config = default_config(env_name=args.env_name,
-                            h_algo_name=args.h_algo_name,
-                            w_algo_name=args.w_algo_name)
-
-    # Run experiment.
-    run_exp(**config)

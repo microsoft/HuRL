@@ -76,7 +76,7 @@ def default_config(env_name,
         config['h_n_epoch'] = 30
         config['w_n_epoch'] = 30
 
-        # srl
+        # hurl
         config['data_path'] = 'snapshots/SAC_HalfC_1.0_None_F_200/786495378/'
         config['data_itr'] = [0,199,4]
 
@@ -111,7 +111,7 @@ def default_config(env_name,
         config['h_n_epoch'] = 30
         config['w_n_epoch'] = 30
 
-        # srl
+        # hurl
         config['data_path'] = 'snapshots/SAC_Hoppe_1.0_None_F_200/581079651/'
         config['data_itr'] = [0,199,4]
 
@@ -146,7 +146,7 @@ def default_config(env_name,
         config['h_n_epoch'] = 80
         config['w_n_epoch'] = 50
 
-        # srl
+        # hurl
         config['data_path'] = 'snapshots/SAC_Human_1.0_F_F/293494415/'
         config['data_itr'] = [0,200,4]
 
@@ -181,7 +181,7 @@ def default_config(env_name,
         config['h_n_epoch'] = 30
         config['w_n_epoch'] = 30
 
-        # srl
+        # hurl
         config['data_path'] = 'snapshots/SAC_Swimm_1.0_None_F/355552195'
         config['data_itr'] = [0,199,4]
 
@@ -193,5 +193,31 @@ def default_config(env_name,
             # 0.95 1.000000 6 205.1 10 run2350.74
             config['lambd'] = 0.95
             config['ls_rate'] =  1.000000
+
+
+    # Sparse Reacher Environment
+    if env_name=='Sparse-Reacher-v2':
+        # setup
+        config['batch_size'] = 10000
+        config['n_epochs'] = 200
+
+
+        # optimization run3001.172 (for thres 0.01)
+        config['policy_lr'] = 0.00025
+        config['value_lr'] =  0.00025
+        config['discount'] = 0.9
+        config['target_update_tau'] = 0.0200
+
+        # architecture
+        config['policy_network_hidden_sizes'] = [64,64]
+        config['value_network_hidden_sizes'] = [256,256]
+
+        # batch training
+        config['warmstart_policy'] = False
+
+        if config['h_algo_name'] is not None:
+            config['h_algo_name']=='GIVEN'
+            config['lambd'] = 0.5
+            config['ls_rate'] =  100000.0
 
     return config
