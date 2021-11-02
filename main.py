@@ -503,44 +503,63 @@ def run_exp(*,
 
 if __name__ == '__main__':
     # Parse command line inputs.
+    # import argparse
+    # from hurl.utils import str2bool
+    # parser = argparse.ArgumentParser()
+    # parser.add_argument('-a', '--algo_name', type=str, default='SAC')
+    # parser.add_argument('-d', '--discount', type=float, default=None)
+    # parser.add_argument('-N', '--n_epochs', type=int, default=50)
+    # parser.add_argument('--total_n_samples', type=int, default=None)
+    # parser.add_argument('-e', '--env_name', type=str, default='HalfCheetah-v2')
+    # parser.add_argument('-b', '--batch_size', type=int, default=10000)
+    # parser.add_argument('-s', '--seed', type=int, default=1)
+    # # offline batch data
+    # parser.add_argument('--data_path', type=str, default='snapshots/SAC_HalfC_1.0_F_F/210566759/')
+    # parser.add_argument('--data_itr', type=int, default=(0,9))
+    # parser.add_argument('--episode_batch_size', type=int, default=10000) #50000)
+    # # pretrain policy
+    # parser.add_argument('-w', '--warmstart_policy', type=str2bool, default=False)
+    # parser.add_argument('--w_algo_name', type=str, default='BC')
+    # parser.add_argument('--w_n_epoch', type=int, default=8)
+    # # short-horizon RL params
+    # parser.add_argument('-l', '--lambd', type=float, default=1.0)
+    # parser.add_argument('-u', '--use_heuristic', type=str2bool, default=False)
+    # parser.add_argument('--use_raw_snapshot', type=str2bool, default=False)
+    # parser.add_argument('--h_algo_name', type=str, default='VPG')
+    # parser.add_argument('--h_n_epoch', type=int, default=30)
+    # parser.add_argument('--ls_rate', type=float, default=1)
+    # parser.add_argument('--ls_cls', type=str, default='TanhLS')
+    # # logging
+    # parser.add_argument('--snapshot_frequency', type=int, default=0)
+    # parser.add_argument('--log_root', type=str, default=None)
+    # parser.add_argument('--log_prefix', type=str, default='agents')
+    # parser.add_argument('--save_mode', type=str, default='light')
+    # # kwargs for get_algo
+    # parser.add_argument('--value_lr', type=float, default=1e-3)
+    # parser.add_argument('--policy_lr', type=float, default=1e-3)
+    # parser.add_argument('-n', '--n_workers', type=int, default=4)
+    # parser.add_argument('--use_gpu', type=str2bool, default=False)
+    # parser.add_argument('--reward_shaping_mode', type=str, default='hurl')
+    # parser.add_argument('--reward_scale', type=float, default=1.0)
+
+    # config = vars(parser.parse_args())
+
     import argparse
-    from hurl.utils import str2bool
     parser = argparse.ArgumentParser()
-    parser.add_argument('-a', '--algo_name', type=str, default='SAC')
-    parser.add_argument('-d', '--discount', type=float, default=None)
-    parser.add_argument('-N', '--n_epochs', type=int, default=50)
-    parser.add_argument('--total_n_samples', type=int, default=None)
     parser.add_argument('-e', '--env_name', type=str, default='HalfCheetah-v2')
-    parser.add_argument('-b', '--batch_size', type=int, default=10000)
-    parser.add_argument('-s', '--seed', type=int, default=1)
-    # offline batch data
-    parser.add_argument('--data_path', type=str, default='snapshots/SAC_HalfC_1.0_F_F/210566759/')
-    parser.add_argument('--data_itr', type=int, default=(0,9))
-    parser.add_argument('--episode_batch_size', type=int, default=10000) #50000)
-    # pretrain policy
-    parser.add_argument('-w', '--warmstart_policy', type=str2bool, default=False)
-    parser.add_argument('--w_algo_name', type=str, default='BC')
-    parser.add_argument('--w_n_epoch', type=int, default=8)
-    # short-horizon RL params
-    parser.add_argument('-l', '--lambd', type=float, default=1.0)
-    parser.add_argument('-u', '--use_heuristic', type=str2bool, default=False)
-    parser.add_argument('--use_raw_snapshot', type=str2bool, default=False)
-    parser.add_argument('--h_algo_name', type=str, default='VPG')
-    parser.add_argument('--h_n_epoch', type=int, default=30)
-    parser.add_argument('--ls_rate', type=float, default=1)
-    parser.add_argument('--ls_cls', type=str, default='TanhLS')
-    # logging
-    parser.add_argument('--snapshot_frequency', type=int, default=0)
-    parser.add_argument('--log_root', type=str, default=None)
-    parser.add_argument('--log_prefix', type=str, default='agents')
-    parser.add_argument('--save_mode', type=str, default='light')
-    # kwargs for get_algo
-    parser.add_argument('--value_lr', type=float, default=1e-3)
-    parser.add_argument('--policy_lr', type=float, default=1e-3)
-    parser.add_argument('-n', '--n_workers', type=int, default=4)
-    parser.add_argument('--use_gpu', type=str2bool, default=False)
-    parser.add_argument('--reward_shaping_mode', type=str, default='hurl')
-    parser.add_argument('--reward_scale', type=float, default=1.0)
+    parser.add_argument('--w_algo_name', type=str, default='BC')  # 'BC' or ''
+    parser.add_argument('--h_algo_name', type=str, default='VPG')  # 'VPG' or ''
+
+    from hurl_config import default_config
+    args = parser.parse_args()
+
+    args.h_algo_name = None if args.h_algo_name=='' else args.h_algo_name
+    args.w_algo_name = None if args.w_algo_name=='' else args.w_algo_name
+
+
+    config = default_config(env_name=args.env_name,
+                            h_algo_name=args.h_algo_name,
+                            w_algo_name=args.w_algo_name)
 
     # Run experiment.
-    run_exp(**vars(parser.parse_args()))
+    run_exp(**config)
