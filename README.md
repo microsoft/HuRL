@@ -1,4 +1,4 @@
-# Project
+# Heuristic Guided Reinforcement Learning (HuRL)
 
 
 This repository contains codes to reproduce the experimental results of the Heuristic Guided Reinforcement Learning paper published in NeurIPS 2021 by Ching-An Cheng, Andrey Kolobov, and Adith Swaminathan.
