@@ -607,7 +607,7 @@ if __name__ == '__main__':
     # parser.add_argument('-b', '--batch_size', type=int, default=10000)
     # parser.add_argument('-s', '--seed', type=int, default=1)
     # # offline batch data
-    # parser.add_argument('--data_path', type=str, default='snapshots/SAC_HalfC_1.0_F_F/210566759/')
+    # parser.add_argument('--data_path', type=str, default='snapshots/SAC_HalfC_1.0_None_F_200/786495378/')
     # parser.add_argument('--data_itr', type=int, default=(0,9))
     # parser.add_argument('--episode_batch_size', type=int, default=10000) #50000)
     # # pretrain policy

@@ -8,10 +8,12 @@ This repository contains codes to reproduce the experimental results of the Heur
 Create a conda environment with python 3.7 and install the repository.
 
     conda create -n hurl pip python=3.7
+    conda activate hurl
     git clone https://github.com/microsoft/HuRL
     cd HuRL
     pip install -e .
 
+The codes use Mujoco environments, visit https://www.roboti.us/license.html for Mujoco license key.
 
 ## Execution
 
