@@ -560,9 +560,10 @@ if __name__ == '__main__':
                 reward is shaped, when `h_algo_name` is not 'None'.
 
 
-        To run the vanilla SAC, set `h_algo_name` as 'None'. Otherwise, it runs
-        HuRL. The tuned hyperparameters used in the paper are loaded to run the
-        experiments.
+        To run the SAC, set `h_algo_name` as 'None'. When `reward_shaping_mode`
+        is 'pbrs', it runs SAC with PBRS reward. Otherwise, it runs SAC with
+        HuRL (using reshaped reward and guidance discount). The tuned
+        hyperparameters used in the paper are loaded to run the experiments.
 
 
     """
