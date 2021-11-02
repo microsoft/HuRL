@@ -1,0 +1,36 @@
+{
+  "algo_name": "SAC",
+  "discount": 0.999,
+  "n_epochs": 500.0,
+  "env_name": "Humanoid-v2",
+  "batch_size": 10000,
+  "heuristic": null,
+  "save_mode": "light",
+  "init_policy_fun": {
+    "$type": "builtins.function"
+  },
+  "lambd": 1.0,
+  "seed": 293494415,
+  "ls_n_epochs": null,
+  "ls_cls": "TanhLS",
+  "policy_lr": 0.002,
+  "value_lr": 0.0001,
+  "opt_minibatch_size": 128,
+  "opt_n_grad_steps": 1000,
+  "num_evaluation_episodes": 10,
+  "value_natwork_hidden_sizes": [
+    256,
+    256
+  ],
+  "policy_network_hidden_sizes": [
+    256,
+    256
+  ],
+  "n_workers": 8,
+  "use_gpu": false,
+  "sampler_mode": "ray",
+  "kl_constraint": 0.05,
+  "gae_lambda": 0.98,
+  "lr_clip_range": 0.2,
+  "ignore_shutdown": true
+}

@@ -1,0 +1,3648 @@
+{
+  "_snapshotter": {
+    "_snapshot_dir": "../results/data/local/experiment/shortrl/hp_tuning/SAC_Hoppe_1.0_None_F/581079651",
+    "_snapshot_mode": "gap_and_last",
+    "_snapshot_gap": 1,
+    "$type": "garage.experiment.snapshotter.Snapshotter"
+  },
+  "_has_setup": true,
+  "_plot": false,
+  "_seed": 581079651,
+  "_train_args": {
+    "n_epochs": 200,
+    "batch_size": 4000,
+    "plot": false,
+    "store_episodes": false,
+    "pause_for_plot": false,
+    "start_epoch": 0,
+    "$type": "garage.trainer.TrainArgs"
+  },
+  "_stats": {
+    "total_epoch": 0,
+    "total_itr": 0,
+    "total_env_steps": 0,
+    "last_episode": "None",
+    "$type": "garage.trainer.ExperimentStats"
+  },
+  "_algo": {
+    "_qf1": {
+      "_env_spec": {
+        "max_episode_length": 1000,
+        "input_space": {
+          "dtype": "dtype('float32')",
+          "shape": [
+            3
+          ],
+          "low": "array([-1., -1., -1.], dtype=float32)",
+          "high": "array([1., 1., 1.], dtype=float32)",
+          "bounded_below": "array([ True,  True,  True])",
+          "bounded_above": "array([ True,  True,  True])",
+          "np_random": "RandomState(MT19937) at 0x7FE53DB726B0",
+          "$type": "akro.box.Box"
+        },
+        "output_space": {
+          "dtype": "dtype('float32')",
+          "shape": [
+            11
+          ],
+          "low": "array([-inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf],\n      dtype=float32)",
+          "high": "array([inf, inf, inf, inf, inf, inf, inf, inf, inf, inf, inf],\n      dtype=float32)",
+          "bounded_below": "array([False, False, False, False, False, False, False, False, False,\n       False, False])",
+          "bounded_above": "array([False, False, False, False, False, False, False, False, False,\n       False, False])",
+          "np_random": "RandomState(MT19937) at 0x7FE53DB727C0",
+          "$type": "akro.box.Box"
+        },
+        "$type": "garage._environment.EnvSpec"
+      },
+      "_obs_dim": 11.0,
+      "_action_dim": 3.0,
+      "training": true,
+      "_parameters": {},
+      "_buffers": {},
+      "_non_persistent_buffers_set": [],
+      "_backward_hooks": {},
+      "_forward_hooks": {},
+      "_forward_pre_hooks": {},
+      "_state_dict_hooks": {},
+      "_load_state_dict_pre_hooks": {},
+      "_modules": {
+        "_layers": {
+          "training": true,
+          "_parameters": {},
+          "_buffers": {},
+          "_non_persistent_buffers_set": [],
+          "_backward_hooks": {},
+          "_forward_hooks": {},
+          "_forward_pre_hooks": {},
+          "_state_dict_hooks": {},
+          "_load_state_dict_pre_hooks": {},
+          "_modules": {
+            "0": {
+              "training": true,
+              "_parameters": {},
+              "_buffers": {},
+              "_non_persistent_buffers_set": [],
+              "_backward_hooks": {},
+              "_forward_hooks": {},
+              "_forward_pre_hooks": {},
+              "_state_dict_hooks": {},
+              "_load_state_dict_pre_hooks": {},
+              "_modules": {
+                "linear": {
+                  "training": true,
+                  "_parameters": {
+                    "weight": {
+                      "$type": "torch.nn.parameter.Parameter"
+                    },
+                    "bias": {
+                      "$type": "torch.nn.parameter.Parameter"
+                    }
+                  },
+                  "_buffers": {},
+                  "_non_persistent_buffers_set": [],
+                  "_backward_hooks": {},
+                  "_forward_hooks": {},
+                  "_forward_pre_hooks": {},
+                  "_state_dict_hooks": {},
+                  "_load_state_dict_pre_hooks": {},
+                  "_modules": {},
+                  "in_features": 14.0,
+                  "out_features": 256,
+                  "$type": "torch.nn.modules.linear.Linear"
+                },
+                "non_linearity": {
+                  "training": true,
+                  "_parameters": {},
+                  "_buffers": {},
+                  "_non_persistent_buffers_set": [],
+                  "_backward_hooks": {},
+                  "_forward_hooks": {},
+                  "_forward_pre_hooks": {},
+                  "_state_dict_hooks": {},
+                  "_load_state_dict_pre_hooks": {},
+                  "_modules": {},
+                  "module": "<built-in method tanh of type object at 0x7fe5c5f66700>",
+                  "$type": "garage.torch._functions.NonLinearity"
+                }
+              },
+              "$type": "torch.nn.modules.container.Sequential"
+            },
+            "1": {
+              "training": true,
+              "_parameters": {},
+              "_buffers": {},
+              "_non_persistent_buffers_set": [],
+              "_backward_hooks": {},
+              "_forward_hooks": {},
+              "_forward_pre_hooks": {},
+              "_state_dict_hooks": {},
+              "_load_state_dict_pre_hooks": {},
+              "_modules": {
+                "linear": {
+                  "training": true,
+                  "_parameters": {
+                    "weight": {
+                      "$type": "torch.nn.parameter.Parameter"
+                    },
+                    "bias": {
+                      "$type": "torch.nn.parameter.Parameter"
+                    }
+                  },
+                  "_buffers": {},
+                  "_non_persistent_buffers_set": [],
+                  "_backward_hooks": {},
+                  "_forward_hooks": {},
+                  "_forward_pre_hooks": {},
+                  "_state_dict_hooks": {},
+                  "_load_state_dict_pre_hooks": {},
+                  "_modules": {},
+                  "in_features": 256,
+                  "out_features": 128,
+                  "$type": "torch.nn.modules.linear.Linear"
+                },
+                "non_linearity": {
+                  "training": true,
+                  "_parameters": {},
+                  "_buffers": {},
+                  "_non_persistent_buffers_set": [],
+                  "_backward_hooks": {},
+                  "_forward_hooks": {},
+                  "_forward_pre_hooks": {},
+                  "_state_dict_hooks": {},
+                  "_load_state_dict_pre_hooks": {},
+                  "_modules": {},
+                  "module": "<built-in method tanh of type object at 0x7fe5c5f66700>",
+                  "$type": "garage.torch._functions.NonLinearity"
+                }
+              },
+              "$type": "torch.nn.modules.container.Sequential"
+            }
+          },
+          "$type": "torch.nn.modules.container.ModuleList"
+        },
+        "_output_layers": {
+          "training": true,
+          "_parameters": {},
+          "_buffers": {},
+          "_non_persistent_buffers_set": [],
+          "_backward_hooks": {},
+          "_forward_hooks": {},
+          "_forward_pre_hooks": {},
+          "_state_dict_hooks": {},
+          "_load_state_dict_pre_hooks": {},
+          "_modules": {
+            "0": {
+              "training": true,
+              "_parameters": {},
+              "_buffers": {},
+              "_non_persistent_buffers_set": [],
+              "_backward_hooks": {},
+              "_forward_hooks": {},
+              "_forward_pre_hooks": {},
+              "_state_dict_hooks": {},
+              "_load_state_dict_pre_hooks": {},
+              "_modules": {
+                "linear": {
+                  "training": true,
+                  "_parameters": {
+                    "weight": {
+                      "$type": "torch.nn.parameter.Parameter"
+                    },
+                    "bias": {
+                      "$type": "torch.nn.parameter.Parameter"
+                    }
+                  },
+                  "_buffers": {},
+                  "_non_persistent_buffers_set": [],
+                  "_backward_hooks": {},
+                  "_forward_hooks": {},
+                  "_forward_pre_hooks": {},
+                  "_state_dict_hooks": {},
+                  "_load_state_dict_pre_hooks": {},
+                  "_modules": {},
+                  "in_features": 128,
+                  "out_features": 1,
+                  "$type": "torch.nn.modules.linear.Linear"
+                }
+              },
+              "$type": "torch.nn.modules.container.Sequential"
+            }
+          },
+          "$type": "torch.nn.modules.container.ModuleList"
+        }
+      },
+      "_output_dim": 1,
+      "$type": "garage.torch.q_functions.continuous_mlp_q_function.ContinuousMLPQFunction"
+    },
+    "_qf2": {
+      "_env_spec": {
+        "max_episode_length": 1000,
+        "input_space": {
+          "dtype": "dtype('float32')",
+          "shape": [
+            3
+          ],
+          "low": "array([-1., -1., -1.], dtype=float32)",
+          "high": "array([1., 1., 1.], dtype=float32)",
+          "bounded_below": "array([ True,  True,  True])",
+          "bounded_above": "array([ True,  True,  True])",
+          "np_random": "RandomState(MT19937) at 0x7FE53DB726B0",
+          "$type": "akro.box.Box"
+        },
+        "output_space": {
+          "dtype": "dtype('float32')",
+          "shape": [
+            11
+          ],
+          "low": "array([-inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf],\n      dtype=float32)",
+          "high": "array([inf, inf, inf, inf, inf, inf, inf, inf, inf, inf, inf],\n      dtype=float32)",
+          "bounded_below": "array([False, False, False, False, False, False, False, False, False,\n       False, False])",
+          "bounded_above": "array([False, False, False, False, False, False, False, False, False,\n       False, False])",
+          "np_random": "RandomState(MT19937) at 0x7FE53DB727C0",
+          "$type": "akro.box.Box"
+        },
+        "$type": "garage._environment.EnvSpec"
+      },
+      "_obs_dim": 11.0,
+      "_action_dim": 3.0,
+      "training": true,
+      "_parameters": {},
+      "_buffers": {},
+      "_non_persistent_buffers_set": [],
+      "_backward_hooks": {},
+      "_forward_hooks": {},
+      "_forward_pre_hooks": {},
+      "_state_dict_hooks": {},
+      "_load_state_dict_pre_hooks": {},
+      "_modules": {
+        "_layers": {
+          "training": true,
+          "_parameters": {},
+          "_buffers": {},
+          "_non_persistent_buffers_set": [],
+          "_backward_hooks": {},
+          "_forward_hooks": {},
+          "_forward_pre_hooks": {},
+          "_state_dict_hooks": {},
+          "_load_state_dict_pre_hooks": {},
+          "_modules": {
+            "0": {
+              "training": true,
+              "_parameters": {},
+              "_buffers": {},
+              "_non_persistent_buffers_set": [],
+              "_backward_hooks": {},
+              "_forward_hooks": {},
+              "_forward_pre_hooks": {},
+              "_state_dict_hooks": {},
+              "_load_state_dict_pre_hooks": {},
+              "_modules": {
+                "linear": {
+                  "training": true,
+                  "_parameters": {
+                    "weight": {
+                      "$type": "torch.nn.parameter.Parameter"
+                    },
+                    "bias": {
+                      "$type": "torch.nn.parameter.Parameter"
+                    }
+                  },
+                  "_buffers": {},
+                  "_non_persistent_buffers_set": [],
+                  "_backward_hooks": {},
+                  "_forward_hooks": {},
+                  "_forward_pre_hooks": {},
+                  "_state_dict_hooks": {},
+                  "_load_state_dict_pre_hooks": {},
+                  "_modules": {},
+                  "in_features": 14.0,
+                  "out_features": 256,
+                  "$type": "torch.nn.modules.linear.Linear"
+                },
+                "non_linearity": {
+                  "training": true,
+                  "_parameters": {},
+                  "_buffers": {},
+                  "_non_persistent_buffers_set": [],
+                  "_backward_hooks": {},
+                  "_forward_hooks": {},
+                  "_forward_pre_hooks": {},
+                  "_state_dict_hooks": {},
+                  "_load_state_dict_pre_hooks": {},
+                  "_modules": {},
+                  "module": "<built-in method tanh of type object at 0x7fe5c5f66700>",
+                  "$type": "garage.torch._functions.NonLinearity"
+                }
+              },
+              "$type": "torch.nn.modules.container.Sequential"
+            },
+            "1": {
+              "training": true,
+              "_parameters": {},
+              "_buffers": {},
+              "_non_persistent_buffers_set": [],
+              "_backward_hooks": {},
+              "_forward_hooks": {},
+              "_forward_pre_hooks": {},
+              "_state_dict_hooks": {},
+              "_load_state_dict_pre_hooks": {},
+              "_modules": {
+                "linear": {
+                  "training": true,
+                  "_parameters": {
+                    "weight": {
+                      "$type": "torch.nn.parameter.Parameter"
+                    },
+                    "bias": {
+                      "$type": "torch.nn.parameter.Parameter"
+                    }
+                  },
+                  "_buffers": {},
+                  "_non_persistent_buffers_set": [],
+                  "_backward_hooks": {},
+                  "_forward_hooks": {},
+                  "_forward_pre_hooks": {},
+                  "_state_dict_hooks": {},
+                  "_load_state_dict_pre_hooks": {},
+                  "_modules": {},
+                  "in_features": 256,
+                  "out_features": 128,
+                  "$type": "torch.nn.modules.linear.Linear"
+                },
+                "non_linearity": {
+                  "training": true,
+                  "_parameters": {},
+                  "_buffers": {},
+                  "_non_persistent_buffers_set": [],
+                  "_backward_hooks": {},
+                  "_forward_hooks": {},
+                  "_forward_pre_hooks": {},
+                  "_state_dict_hooks": {},
+                  "_load_state_dict_pre_hooks": {},
+                  "_modules": {},
+                  "module": "<built-in method tanh of type object at 0x7fe5c5f66700>",
+                  "$type": "garage.torch._functions.NonLinearity"
+                }
+              },
+              "$type": "torch.nn.modules.container.Sequential"
+            }
+          },
+          "$type": "torch.nn.modules.container.ModuleList"
+        },
+        "_output_layers": {
+          "training": true,
+          "_parameters": {},
+          "_buffers": {},
+          "_non_persistent_buffers_set": [],
+          "_backward_hooks": {},
+          "_forward_hooks": {},
+          "_forward_pre_hooks": {},
+          "_state_dict_hooks": {},
+          "_load_state_dict_pre_hooks": {},
+          "_modules": {
+            "0": {
+              "training": true,
+              "_parameters": {},
+              "_buffers": {},
+              "_non_persistent_buffers_set": [],
+              "_backward_hooks": {},
+              "_forward_hooks": {},
+              "_forward_pre_hooks": {},
+              "_state_dict_hooks": {},
+              "_load_state_dict_pre_hooks": {},
+              "_modules": {
+                "linear": {
+                  "training": true,
+                  "_parameters": {
+                    "weight": {
+                      "$type": "torch.nn.parameter.Parameter"
+                    },
+                    "bias": {
+                      "$type": "torch.nn.parameter.Parameter"
+                    }
+                  },
+                  "_buffers": {},
+                  "_non_persistent_buffers_set": [],
+                  "_backward_hooks": {},
+                  "_forward_hooks": {},
+                  "_forward_pre_hooks": {},
+                  "_state_dict_hooks": {},
+                  "_load_state_dict_pre_hooks": {},
+                  "_modules": {},
+                  "in_features": 128,
+                  "out_features": 1,
+                  "$type": "torch.nn.modules.linear.Linear"
+                }
+              },
+              "$type": "torch.nn.modules.container.Sequential"
+            }
+          },
+          "$type": "torch.nn.modules.container.ModuleList"
+        }
+      },
+      "_output_dim": 1,
+      "$type": "garage.torch.q_functions.continuous_mlp_q_function.ContinuousMLPQFunction"
+    },
+    "replay_buffer": {
+      "_capacity": 1000000,
+      "_env_spec": "None",
+      "_transitions_stored": 0,
+      "_first_idx_of_next_path": 0,
+      "_path_segments": [],
+      "_buffer": {},
+      "$type": "garage.replay_buffer.path_buffer.PathBuffer"
+    },
+    "_tau": 0.02,
+    "_policy_lr": 0.00025,
+    "_qf_lr": 0.0005,
+    "_initial_log_entropy": 0.0,
+    "_gradient_steps": 1000,
+    "_optimizer": {
+      "$typename": "torch.optim.adam.Adam"
+    },
+    "_num_evaluation_episodes": 10,
+    "_eval_env": "None",
+    "_min_buffer_size": 0,
+    "_steps_per_epoch": 1,
+    "_buffer_batch_size": 128,
+    "_discount": 0.999,
+    "_reward_scale": 1.0,
+    "max_episode_length": 1000,
+    "_max_episode_length_eval": 1000,
+    "_use_deterministic_evaluation": true,
+    "policy": {
+      "training": true,
+      "_parameters": {},
+      "_buffers": {},
+      "_non_persistent_buffers_set": [],
+      "_backward_hooks": {},
+      "_forward_hooks": {},
+      "_forward_pre_hooks": {},
+      "_state_dict_hooks": {},
+      "_load_state_dict_pre_hooks": {},
+      "_modules": {
+        "_module": {
+          "training": true,
+          "_parameters": {
+            "_init_std": {
+              "$type": "torch.nn.parameter.Parameter"
+            }
+          },
+          "_buffers": {
+            "min_std_param": {
+              "$type": "torch.Tensor"
+            },
+            "max_std_param": {
+              "$type": "torch.Tensor"
+            }
+          },
+          "_non_persistent_buffers_set": [],
+          "_backward_hooks": {},
+          "_forward_hooks": {},
+          "_forward_pre_hooks": {},
+          "_state_dict_hooks": {},
+          "_load_state_dict_pre_hooks": {},
+          "_modules": {
+            "_shared_mean_log_std_network": {
+              "training": true,
+              "_parameters": {},
+              "_buffers": {},
+              "_non_persistent_buffers_set": [],
+              "_backward_hooks": {},
+              "_forward_hooks": {},
+              "_forward_pre_hooks": {},
+              "_state_dict_hooks": {},
+              "_load_state_dict_pre_hooks": {},
+              "_modules": {
+                "_layers": {
+                  "training": true,
+                  "_parameters": {},
+                  "_buffers": {},
+                  "_non_persistent_buffers_set": [],
+                  "_backward_hooks": {},
+                  "_forward_hooks": {},
+                  "_forward_pre_hooks": {},
+                  "_state_dict_hooks": {},
+                  "_load_state_dict_pre_hooks": {},
+                  "_modules": {
+                    "0": {
+                      "training": true,
+                      "_parameters": {},
+                      "_buffers": {},
+                      "_non_persistent_buffers_set": [],
+                      "_backward_hooks": {},
+                      "_forward_hooks": {},
+                      "_forward_pre_hooks": {},
+                      "_state_dict_hooks": {},
+                      "_load_state_dict_pre_hooks": {},
+                      "_modules": {
+                        "linear": {
+                          "training": true,
+                          "_parameters": {
+                            "weight": {
+                              "$type": "torch.nn.parameter.Parameter"
+                            },
+                            "bias": {
+                              "$type": "torch.nn.parameter.Parameter"
+                            }
+                          },
+                          "_buffers": {},
+                          "_non_persistent_buffers_set": [],
+                          "_backward_hooks": {},
+                          "_forward_hooks": {},
+                          "_forward_pre_hooks": {},
+                          "_state_dict_hooks": {},
+                          "_load_state_dict_pre_hooks": {},
+                          "_modules": {},
+                          "in_features": 11.0,
+                          "out_features": 64,
+                          "$type": "torch.nn.modules.linear.Linear"
+                        },
+                        "non_linearity": {
+                          "training": true,
+                          "_parameters": {},
+                          "_buffers": {},
+                          "_non_persistent_buffers_set": [],
+                          "_backward_hooks": {},
+                          "_forward_hooks": {},
+                          "_forward_pre_hooks": {},
+                          "_state_dict_hooks": {},
+                          "_load_state_dict_pre_hooks": {},
+                          "_modules": {},
+                          "module": "<built-in method tanh of type object at 0x7fe5c5f66700>",
+                          "$type": "garage.torch._functions.NonLinearity"
+                        }
+                      },
+                      "$type": "torch.nn.modules.container.Sequential"
+                    },
+                    "1": {
+                      "training": true,
+                      "_parameters": {},
+                      "_buffers": {},
+                      "_non_persistent_buffers_set": [],
+                      "_backward_hooks": {},
+                      "_forward_hooks": {},
+                      "_forward_pre_hooks": {},
+                      "_state_dict_hooks": {},
+                      "_load_state_dict_pre_hooks": {},
+                      "_modules": {
+                        "linear": {
+                          "training": true,
+                          "_parameters": {
+                            "weight": {
+                              "$type": "torch.nn.parameter.Parameter"
+                            },
+                            "bias": {
+                              "$type": "torch.nn.parameter.Parameter"
+                            }
+                          },
+                          "_buffers": {},
+                          "_non_persistent_buffers_set": [],
+                          "_backward_hooks": {},
+                          "_forward_hooks": {},
+                          "_forward_pre_hooks": {},
+                          "_state_dict_hooks": {},
+                          "_load_state_dict_pre_hooks": {},
+                          "_modules": {},
+                          "in_features": 64,
+                          "out_features": 64,
+                          "$type": "torch.nn.modules.linear.Linear"
+                        },
+                        "non_linearity": {
+                          "training": true,
+                          "_parameters": {},
+                          "_buffers": {},
+                          "_non_persistent_buffers_set": [],
+                          "_backward_hooks": {},
+                          "_forward_hooks": {},
+                          "_forward_pre_hooks": {},
+                          "_state_dict_hooks": {},
+                          "_load_state_dict_pre_hooks": {},
+                          "_modules": {},
+                          "module": "<built-in method tanh of type object at 0x7fe5c5f66700>",
+                          "$type": "garage.torch._functions.NonLinearity"
+                        }
+                      },
+                      "$type": "torch.nn.modules.container.Sequential"
+                    }
+                  },
+                  "$type": "torch.nn.modules.container.ModuleList"
+                },
+                "_output_layers": {
+                  "training": true,
+                  "_parameters": {},
+                  "_buffers": {},
+                  "_non_persistent_buffers_set": [],
+                  "_backward_hooks": {},
+                  "_forward_hooks": {},
+                  "_forward_pre_hooks": {},
+                  "_state_dict_hooks": {},
+                  "_load_state_dict_pre_hooks": {},
+                  "_modules": {
+                    "0": {
+                      "training": true,
+                      "_parameters": {},
+                      "_buffers": {},
+                      "_non_persistent_buffers_set": [],
+                      "_backward_hooks": {},
+                      "_forward_hooks": {},
+                      "_forward_pre_hooks": {},
+                      "_state_dict_hooks": {},
+                      "_load_state_dict_pre_hooks": {},
+                      "_modules": {
+                        "linear": {
+                          "training": true,
+                          "_parameters": {
+                            "weight": {
+                              "$type": "torch.nn.parameter.Parameter"
+                            },
+                            "bias": {
+                              "$type": "torch.nn.parameter.Parameter"
+                            }
+                          },
+                          "_buffers": {},
+                          "_non_persistent_buffers_set": [],
+                          "_backward_hooks": {},
+                          "_forward_hooks": {},
+                          "_forward_pre_hooks": {},
+                          "_state_dict_hooks": {},
+                          "_load_state_dict_pre_hooks": {},
+                          "_modules": {},
+                          "in_features": 64,
+                          "out_features": 3.0,
+                          "$type": "torch.nn.modules.linear.Linear"
+                        }
+                      },
+                      "$type": "torch.nn.modules.container.Sequential"
+                    },
+                    "1": {
+                      "training": true,
+                      "_parameters": {},
+                      "_buffers": {},
+                      "_non_persistent_buffers_set": [],
+                      "_backward_hooks": {},
+                      "_forward_hooks": {},
+                      "_forward_pre_hooks": {},
+                      "_state_dict_hooks": {},
+                      "_load_state_dict_pre_hooks": {},
+                      "_modules": {
+                        "linear": {
+                          "training": true,
+                          "_parameters": {
+                            "weight": {
+                              "$type": "torch.nn.parameter.Parameter"
+                            },
+                            "bias": {
+                              "$type": "torch.nn.parameter.Parameter"
+                            }
+                          },
+                          "_buffers": {},
+                          "_non_persistent_buffers_set": [],
+                          "_backward_hooks": {},
+                          "_forward_hooks": {},
+                          "_forward_pre_hooks": {},
+                          "_state_dict_hooks": {},
+                          "_load_state_dict_pre_hooks": {},
+                          "_modules": {},
+                          "in_features": 64,
+                          "out_features": 3.0,
+                          "$type": "torch.nn.modules.linear.Linear"
+                        }
+                      },
+                      "$type": "torch.nn.modules.container.Sequential"
+                    }
+                  },
+                  "$type": "torch.nn.modules.container.ModuleList"
+                }
+              },
+              "$type": "garage.torch.modules.multi_headed_mlp_module.MultiHeadedMLPModule"
+            }
+          },
+          "_input_dim": 11.0,
+          "_hidden_sizes": [
+            64,
+            64
+          ],
+          "_action_dim": 3.0,
+          "_learn_std": true,
+          "_std_hidden_sizes": [
+            32,
+            32
+          ],
+          "_min_std": 2.061153622438558e-09,
+          "_max_std": 7.38905609893065,
+          "_std_hidden_nonlinearity": "<built-in method tanh of type object at 0x7fe5c5f66700>",
+          "_std_hidden_w_init": {
+            "$type": "builtins.function"
+          },
+          "_std_hidden_b_init": {
+            "$type": "builtins.function"
+          },
+          "_std_output_nonlinearity": "None",
+          "_std_output_w_init": {
+            "$type": "builtins.function"
+          },
+          "_std_parameterization": "exp",
+          "_hidden_nonlinearity": "<built-in method tanh of type object at 0x7fe5c5f66700>",
+          "_hidden_w_init": {
+            "$type": "builtins.function"
+          },
+          "_hidden_b_init": {
+            "$type": "builtins.function"
+          },
+          "_output_nonlinearity": "None",
+          "_output_w_init": {
+            "$type": "builtins.function"
+          },
+          "_output_b_init": {
+            "$type": "builtins.function"
+          },
+          "_layer_normalization": false,
+          "_norm_dist_class": {
+            "$typename": "garage.torch.distributions.tanh_normal.TanhNormal"
+          },
+          "_min_std_param": {
+            "$type": "torch.Tensor"
+          },
+          "_max_std_param": {
+            "$type": "torch.Tensor"
+          },
+          "$type": "garage.torch.modules.gaussian_mlp_module.GaussianMLPTwoHeadedModule"
+        }
+      },
+      "_env_spec": {
+        "max_episode_length": 1000,
+        "input_space": {
+          "dtype": "dtype('float32')",
+          "shape": [
+            3
+          ],
+          "low": "array([-1., -1., -1.], dtype=float32)",
+          "high": "array([1., 1., 1.], dtype=float32)",
+          "bounded_below": "array([ True,  True,  True])",
+          "bounded_above": "array([ True,  True,  True])",
+          "np_random": "RandomState(MT19937) at 0x7FE53DB726B0",
+          "$type": "akro.box.Box"
+        },
+        "output_space": {
+          "dtype": "dtype('float32')",
+          "shape": [
+            11
+          ],
+          "low": "array([-inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf],\n      dtype=float32)",
+          "high": "array([inf, inf, inf, inf, inf, inf, inf, inf, inf, inf, inf],\n      dtype=float32)",
+          "bounded_below": "array([False, False, False, False, False, False, False, False, False,\n       False, False])",
+          "bounded_above": "array([False, False, False, False, False, False, False, False, False,\n       False, False])",
+          "np_random": "RandomState(MT19937) at 0x7FE53DB727C0",
+          "$type": "akro.box.Box"
+        },
+        "$type": "garage._environment.EnvSpec"
+      },
+      "_name": "TanhGaussianPolicy",
+      "_obs_dim": 11.0,
+      "_action_dim": 3.0,
+      "$type": "garage.torch.policies.tanh_gaussian_mlp_policy.TanhGaussianMLPPolicy"
+    },
+    "env_spec": {
+      "max_episode_length": 1000,
+      "input_space": {
+        "dtype": "dtype('float32')",
+        "shape": [
+          3
+        ],
+        "low": "array([-1., -1., -1.], dtype=float32)",
+        "high": "array([1., 1., 1.], dtype=float32)",
+        "bounded_below": "array([ True,  True,  True])",
+        "bounded_above": "array([ True,  True,  True])",
+        "np_random": "RandomState(MT19937) at 0x7FE53DB726B0",
+        "$type": "akro.box.Box"
+      },
+      "output_space": {
+        "dtype": "dtype('float32')",
+        "shape": [
+          11
+        ],
+        "low": "array([-inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf],\n      dtype=float32)",
+        "high": "array([inf, inf, inf, inf, inf, inf, inf, inf, inf, inf, inf],\n      dtype=float32)",
+        "bounded_below": "array([False, False, False, False, False, False, False, False, False,\n       False, False])",
+        "bounded_above": "array([False, False, False, False, False, False, False, False, False,\n       False, False])",
+        "np_random": "RandomState(MT19937) at 0x7FE53DB727C0",
+        "$type": "akro.box.Box"
+      },
+      "$type": "garage._environment.EnvSpec"
+    },
+    "_sampler": {
+      "_worker_factory": {
+        "n_workers": 4,
+        "_seed": "None",
+        "_max_episode_length": 1000,
+        "_worker_class": {
+          "$typename": "garage.sampler.default_worker.DefaultWorker"
+        },
+        "_worker_args": {},
+        "$type": "garage.sampler.worker_factory.WorkerFactory"
+      },
+      "_sampler_worker": {
+        "__ray_metadata__": "<ray.actor.ActorClassMetadata object at 0x7fe53cc25810>",
+        "$type": "garage.sampler.ray_sampler.ActorClass(SamplerWorker)"
+      },
+      "_agents": {
+        "training": true,
+        "_parameters": {},
+        "_buffers": {},
+        "_non_persistent_buffers_set": [],
+        "_backward_hooks": {},
+        "_forward_hooks": {},
+        "_forward_pre_hooks": {},
+        "_state_dict_hooks": {},
+        "_load_state_dict_pre_hooks": {},
+        "_modules": {
+          "_module": {
+            "training": true,
+            "_parameters": {
+              "_init_std": {
+                "$type": "torch.nn.parameter.Parameter"
+              }
+            },
+            "_buffers": {
+              "min_std_param": {
+                "$type": "torch.Tensor"
+              },
+              "max_std_param": {
+                "$type": "torch.Tensor"
+              }
+            },
+            "_non_persistent_buffers_set": [],
+            "_backward_hooks": {},
+            "_forward_hooks": {},
+            "_forward_pre_hooks": {},
+            "_state_dict_hooks": {},
+            "_load_state_dict_pre_hooks": {},
+            "_modules": {
+              "_shared_mean_log_std_network": {
+                "training": true,
+                "_parameters": {},
+                "_buffers": {},
+                "_non_persistent_buffers_set": [],
+                "_backward_hooks": {},
+                "_forward_hooks": {},
+                "_forward_pre_hooks": {},
+                "_state_dict_hooks": {},
+                "_load_state_dict_pre_hooks": {},
+                "_modules": {
+                  "_layers": {
+                    "training": true,
+                    "_parameters": {},
+                    "_buffers": {},
+                    "_non_persistent_buffers_set": [],
+                    "_backward_hooks": {},
+                    "_forward_hooks": {},
+                    "_forward_pre_hooks": {},
+                    "_state_dict_hooks": {},
+                    "_load_state_dict_pre_hooks": {},
+                    "_modules": {
+                      "0": {
+                        "training": true,
+                        "_parameters": {},
+                        "_buffers": {},
+                        "_non_persistent_buffers_set": [],
+                        "_backward_hooks": {},
+                        "_forward_hooks": {},
+                        "_forward_pre_hooks": {},
+                        "_state_dict_hooks": {},
+                        "_load_state_dict_pre_hooks": {},
+                        "_modules": {
+                          "linear": {
+                            "training": true,
+                            "_parameters": {
+                              "weight": {
+                                "$type": "torch.nn.parameter.Parameter"
+                              },
+                              "bias": {
+                                "$type": "torch.nn.parameter.Parameter"
+                              }
+                            },
+                            "_buffers": {},
+                            "_non_persistent_buffers_set": [],
+                            "_backward_hooks": {},
+                            "_forward_hooks": {},
+                            "_forward_pre_hooks": {},
+                            "_state_dict_hooks": {},
+                            "_load_state_dict_pre_hooks": {},
+                            "_modules": {},
+                            "in_features": 11.0,
+                            "out_features": 64,
+                            "$type": "torch.nn.modules.linear.Linear"
+                          },
+                          "non_linearity": {
+                            "training": true,
+                            "_parameters": {},
+                            "_buffers": {},
+                            "_non_persistent_buffers_set": [],
+                            "_backward_hooks": {},
+                            "_forward_hooks": {},
+                            "_forward_pre_hooks": {},
+                            "_state_dict_hooks": {},
+                            "_load_state_dict_pre_hooks": {},
+                            "_modules": {},
+                            "module": "<built-in method tanh of type object at 0x7fe5c5f66700>",
+                            "$type": "garage.torch._functions.NonLinearity"
+                          }
+                        },
+                        "$type": "torch.nn.modules.container.Sequential"
+                      },
+                      "1": {
+                        "training": true,
+                        "_parameters": {},
+                        "_buffers": {},
+                        "_non_persistent_buffers_set": [],
+                        "_backward_hooks": {},
+                        "_forward_hooks": {},
+                        "_forward_pre_hooks": {},
+                        "_state_dict_hooks": {},
+                        "_load_state_dict_pre_hooks": {},
+                        "_modules": {
+                          "linear": {
+                            "training": true,
+                            "_parameters": {
+                              "weight": {
+                                "$type": "torch.nn.parameter.Parameter"
+                              },
+                              "bias": {
+                                "$type": "torch.nn.parameter.Parameter"
+                              }
+                            },
+                            "_buffers": {},
+                            "_non_persistent_buffers_set": [],
+                            "_backward_hooks": {},
+                            "_forward_hooks": {},
+                            "_forward_pre_hooks": {},
+                            "_state_dict_hooks": {},
+                            "_load_state_dict_pre_hooks": {},
+                            "_modules": {},
+                            "in_features": 64,
+                            "out_features": 64,
+                            "$type": "torch.nn.modules.linear.Linear"
+                          },
+                          "non_linearity": {
+                            "training": true,
+                            "_parameters": {},
+                            "_buffers": {},
+                            "_non_persistent_buffers_set": [],
+                            "_backward_hooks": {},
+                            "_forward_hooks": {},
+                            "_forward_pre_hooks": {},
+                            "_state_dict_hooks": {},
+                            "_load_state_dict_pre_hooks": {},
+                            "_modules": {},
+                            "module": "<built-in method tanh of type object at 0x7fe5c5f66700>",
+                            "$type": "garage.torch._functions.NonLinearity"
+                          }
+                        },
+                        "$type": "torch.nn.modules.container.Sequential"
+                      }
+                    },
+                    "$type": "torch.nn.modules.container.ModuleList"
+                  },
+                  "_output_layers": {
+                    "training": true,
+                    "_parameters": {},
+                    "_buffers": {},
+                    "_non_persistent_buffers_set": [],
+                    "_backward_hooks": {},
+                    "_forward_hooks": {},
+                    "_forward_pre_hooks": {},
+                    "_state_dict_hooks": {},
+                    "_load_state_dict_pre_hooks": {},
+                    "_modules": {
+                      "0": {
+                        "training": true,
+                        "_parameters": {},
+                        "_buffers": {},
+                        "_non_persistent_buffers_set": [],
+                        "_backward_hooks": {},
+                        "_forward_hooks": {},
+                        "_forward_pre_hooks": {},
+                        "_state_dict_hooks": {},
+                        "_load_state_dict_pre_hooks": {},
+                        "_modules": {
+                          "linear": {
+                            "training": true,
+                            "_parameters": {
+                              "weight": {
+                                "$type": "torch.nn.parameter.Parameter"
+                              },
+                              "bias": {
+                                "$type": "torch.nn.parameter.Parameter"
+                              }
+                            },
+                            "_buffers": {},
+                            "_non_persistent_buffers_set": [],
+                            "_backward_hooks": {},
+                            "_forward_hooks": {},
+                            "_forward_pre_hooks": {},
+                            "_state_dict_hooks": {},
+                            "_load_state_dict_pre_hooks": {},
+                            "_modules": {},
+                            "in_features": 64,
+                            "out_features": 3.0,
+                            "$type": "torch.nn.modules.linear.Linear"
+                          }
+                        },
+                        "$type": "torch.nn.modules.container.Sequential"
+                      },
+                      "1": {
+                        "training": true,
+                        "_parameters": {},
+                        "_buffers": {},
+                        "_non_persistent_buffers_set": [],
+                        "_backward_hooks": {},
+                        "_forward_hooks": {},
+                        "_forward_pre_hooks": {},
+                        "_state_dict_hooks": {},
+                        "_load_state_dict_pre_hooks": {},
+                        "_modules": {
+                          "linear": {
+                            "training": true,
+                            "_parameters": {
+                              "weight": {
+                                "$type": "torch.nn.parameter.Parameter"
+                              },
+                              "bias": {
+                                "$type": "torch.nn.parameter.Parameter"
+                              }
+                            },
+                            "_buffers": {},
+                            "_non_persistent_buffers_set": [],
+                            "_backward_hooks": {},
+                            "_forward_hooks": {},
+                            "_forward_pre_hooks": {},
+                            "_state_dict_hooks": {},
+                            "_load_state_dict_pre_hooks": {},
+                            "_modules": {},
+                            "in_features": 64,
+                            "out_features": 3.0,
+                            "$type": "torch.nn.modules.linear.Linear"
+                          }
+                        },
+                        "$type": "torch.nn.modules.container.Sequential"
+                      }
+                    },
+                    "$type": "torch.nn.modules.container.ModuleList"
+                  }
+                },
+                "$type": "garage.torch.modules.multi_headed_mlp_module.MultiHeadedMLPModule"
+              }
+            },
+            "_input_dim": 11.0,
+            "_hidden_sizes": [
+              64,
+              64
+            ],
+            "_action_dim": 3.0,
+            "_learn_std": true,
+            "_std_hidden_sizes": [
+              32,
+              32
+            ],
+            "_min_std": 2.061153622438558e-09,
+            "_max_std": 7.38905609893065,
+            "_std_hidden_nonlinearity": "<built-in method tanh of type object at 0x7fe5c5f66700>",
+            "_std_hidden_w_init": {
+              "$type": "builtins.function"
+            },
+            "_std_hidden_b_init": {
+              "$type": "builtins.function"
+            },
+            "_std_output_nonlinearity": "None",
+            "_std_output_w_init": {
+              "$type": "builtins.function"
+            },
+            "_std_parameterization": "exp",
+            "_hidden_nonlinearity": "<built-in method tanh of type object at 0x7fe5c5f66700>",
+            "_hidden_w_init": {
+              "$type": "builtins.function"
+            },
+            "_hidden_b_init": {
+              "$type": "builtins.function"
+            },
+            "_output_nonlinearity": "None",
+            "_output_w_init": {
+              "$type": "builtins.function"
+            },
+            "_output_b_init": {
+              "$type": "builtins.function"
+            },
+            "_layer_normalization": false,
+            "_norm_dist_class": {
+              "$typename": "garage.torch.distributions.tanh_normal.TanhNormal"
+            },
+            "_min_std_param": {
+              "$type": "torch.Tensor"
+            },
+            "_max_std_param": {
+              "$type": "torch.Tensor"
+            },
+            "$type": "garage.torch.modules.gaussian_mlp_module.GaussianMLPTwoHeadedModule"
+          }
+        },
+        "_env_spec": {
+          "max_episode_length": 1000,
+          "input_space": {
+            "dtype": "dtype('float32')",
+            "shape": [
+              3
+            ],
+            "low": "array([-1., -1., -1.], dtype=float32)",
+            "high": "array([1., 1., 1.], dtype=float32)",
+            "bounded_below": "array([ True,  True,  True])",
+            "bounded_above": "array([ True,  True,  True])",
+            "np_random": "RandomState(MT19937) at 0x7FE53DB726B0",
+            "$type": "akro.box.Box"
+          },
+          "output_space": {
+            "dtype": "dtype('float32')",
+            "shape": [
+              11
+            ],
+            "low": "array([-inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf],\n      dtype=float32)",
+            "high": "array([inf, inf, inf, inf, inf, inf, inf, inf, inf, inf, inf],\n      dtype=float32)",
+            "bounded_below": "array([False, False, False, False, False, False, False, False, False,\n       False, False])",
+            "bounded_above": "array([False, False, False, False, False, False, False, False, False,\n       False, False])",
+            "np_random": "RandomState(MT19937) at 0x7FE53DB727C0",
+            "$type": "akro.box.Box"
+          },
+          "$type": "garage._environment.EnvSpec"
+        },
+        "_name": "TanhGaussianPolicy",
+        "_obs_dim": 11.0,
+        "_action_dim": 3.0,
+        "$type": "garage.torch.policies.tanh_gaussian_mlp_policy.TanhGaussianMLPPolicy"
+      },
+      "_envs": [
+        {
+          "_env": {
+            "env": {
+              "frame_skip": 4,
+              "model": "<mujoco_py.cymj.PyMjModel object at 0x559b6a17d7a0>",
+              "sim": "<mujoco_py.cymj.MjSim object at 0x7fe53db007a0>",
+              "data": "<mujoco_py.cymj.PyMjData object at 0x559b6a172c10>",
+              "viewer": "None",
+              "_viewers": {},
+              "metadata": {
+                "render.modes": [
+                  "human",
+                  "rgb_array",
+                  "depth_array"
+                ],
+                "video.frames_per_second": 125
+              },
+              "init_qpos": "array([0.  , 1.25, 0.  , 0.  , 0.  , 0.  ])",
+              "init_qvel": "array([0., 0., 0., 0., 0., 0.])",
+              "action_space": {
+                "dtype": "dtype('float32')",
+                "shape": [
+                  3
+                ],
+                "low": "array([-1., -1., -1.], dtype=float32)",
+                "high": "array([1., 1., 1.], dtype=float32)",
+                "bounded_below": "array([ True,  True,  True])",
+                "bounded_above": "array([ True,  True,  True])",
+                "np_random": "RandomState(MT19937) at 0x7FE53DB72380",
+                "$type": "gym.spaces.box.Box"
+              },
+              "observation_space": {
+                "dtype": "dtype('float64')",
+                "shape": [
+                  11
+                ],
+                "low": "array([-inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf])",
+                "high": "array([inf, inf, inf, inf, inf, inf, inf, inf, inf, inf, inf])",
+                "bounded_below": "array([False, False, False, False, False, False, False, False, False,\n       False, False])",
+                "bounded_above": "array([False, False, False, False, False, False, False, False, False,\n       False, False])",
+                "np_random": "RandomState(MT19937) at 0x7FE53DB72490",
+                "$type": "gym.spaces.box.Box"
+              },
+              "np_random": "RandomState(MT19937) at 0x7FE53DB725A0",
+              "_ezpickle_args": [],
+              "_ezpickle_kwargs": {},
+              "spec": {
+                "id": "Hopper-v2",
+                "entry_point": "gym.envs.mujoco:HopperEnv",
+                "reward_threshold": 3800.0,
+                "nondeterministic": false,
+                "max_episode_steps": 1000,
+                "_kwargs": {},
+                "_env_name": "Hopper",
+                "$type": "gym.envs.registration.EnvSpec"
+              },
+              "$type": "gym.envs.mujoco.hopper.HopperEnv"
+            },
+            "action_space": {
+              "dtype": "dtype('float32')",
+              "shape": [
+                3
+              ],
+              "low": "array([-1., -1., -1.], dtype=float32)",
+              "high": "array([1., 1., 1.], dtype=float32)",
+              "bounded_below": "array([ True,  True,  True])",
+              "bounded_above": "array([ True,  True,  True])",
+              "np_random": "RandomState(MT19937) at 0x7FE53DB72380",
+              "$type": "gym.spaces.box.Box"
+            },
+            "observation_space": {
+              "dtype": "dtype('float64')",
+              "shape": [
+                11
+              ],
+              "low": "array([-inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf])",
+              "high": "array([inf, inf, inf, inf, inf, inf, inf, inf, inf, inf, inf])",
+              "bounded_below": "array([False, False, False, False, False, False, False, False, False,\n       False, False])",
+              "bounded_above": "array([False, False, False, False, False, False, False, False, False,\n       False, False])",
+              "np_random": "RandomState(MT19937) at 0x7FE53DB72490",
+              "$type": "gym.spaces.box.Box"
+            },
+            "reward_range": [
+              -Infinity,
+              Infinity
+            ],
+            "metadata": {
+              "render.modes": [
+                "human",
+                "rgb_array",
+                "depth_array"
+              ],
+              "video.frames_per_second": 125
+            },
+            "_max_episode_steps": 1000,
+            "_elapsed_steps": "None",
+            "$type": "gym.wrappers.time_limit.TimeLimit"
+          },
+          "_max_episode_length": 1000,
+          "_render_modes": [
+            "human",
+            "rgb_array",
+            "depth_array"
+          ],
+          "_step_cnt": "None",
+          "_visualize": false,
+          "_action_space": {
+            "dtype": "dtype('float32')",
+            "shape": [
+              3
+            ],
+            "low": "array([-1., -1., -1.], dtype=float32)",
+            "high": "array([1., 1., 1.], dtype=float32)",
+            "bounded_below": "array([ True,  True,  True])",
+            "bounded_above": "array([ True,  True,  True])",
+            "np_random": "RandomState(MT19937) at 0x7FE53DB726B0",
+            "$type": "akro.box.Box"
+          },
+          "_observation_space": {
+            "dtype": "dtype('float32')",
+            "shape": [
+              11
+            ],
+            "low": "array([-inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf],\n      dtype=float32)",
+            "high": "array([inf, inf, inf, inf, inf, inf, inf, inf, inf, inf, inf],\n      dtype=float32)",
+            "bounded_below": "array([False, False, False, False, False, False, False, False, False,\n       False, False])",
+            "bounded_above": "array([False, False, False, False, False, False, False, False, False,\n       False, False])",
+            "np_random": "RandomState(MT19937) at 0x7FE53DB727C0",
+            "$type": "akro.box.Box"
+          },
+          "_spec": {
+            "max_episode_length": 1000,
+            "input_space": {
+              "dtype": "dtype('float32')",
+              "shape": [
+                3
+              ],
+              "low": "array([-1., -1., -1.], dtype=float32)",
+              "high": "array([1., 1., 1.], dtype=float32)",
+              "bounded_below": "array([ True,  True,  True])",
+              "bounded_above": "array([ True,  True,  True])",
+              "np_random": "RandomState(MT19937) at 0x7FE53DB726B0",
+              "$type": "akro.box.Box"
+            },
+            "output_space": {
+              "dtype": "dtype('float32')",
+              "shape": [
+                11
+              ],
+              "low": "array([-inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf],\n      dtype=float32)",
+              "high": "array([inf, inf, inf, inf, inf, inf, inf, inf, inf, inf, inf],\n      dtype=float32)",
+              "bounded_below": "array([False, False, False, False, False, False, False, False, False,\n       False, False])",
+              "bounded_above": "array([False, False, False, False, False, False, False, False, False,\n       False, False])",
+              "np_random": "RandomState(MT19937) at 0x7FE53DB727C0",
+              "$type": "akro.box.Box"
+            },
+            "$type": "garage._environment.EnvSpec"
+          },
+          "_env_info": "None",
+          "$type": "garage.envs.gym_env.GymEnv"
+        },
+        {
+          "_env": {
+            "env": {
+              "frame_skip": 4,
+              "model": "<mujoco_py.cymj.PyMjModel object at 0x559b6a17d7a0>",
+              "sim": "<mujoco_py.cymj.MjSim object at 0x7fe53db007a0>",
+              "data": "<mujoco_py.cymj.PyMjData object at 0x559b6a172c10>",
+              "viewer": "None",
+              "_viewers": {},
+              "metadata": {
+                "render.modes": [
+                  "human",
+                  "rgb_array",
+                  "depth_array"
+                ],
+                "video.frames_per_second": 125
+              },
+              "init_qpos": "array([0.  , 1.25, 0.  , 0.  , 0.  , 0.  ])",
+              "init_qvel": "array([0., 0., 0., 0., 0., 0.])",
+              "action_space": {
+                "dtype": "dtype('float32')",
+                "shape": [
+                  3
+                ],
+                "low": "array([-1., -1., -1.], dtype=float32)",
+                "high": "array([1., 1., 1.], dtype=float32)",
+                "bounded_below": "array([ True,  True,  True])",
+                "bounded_above": "array([ True,  True,  True])",
+                "np_random": "RandomState(MT19937) at 0x7FE53DB72380",
+                "$type": "gym.spaces.box.Box"
+              },
+              "observation_space": {
+                "dtype": "dtype('float64')",
+                "shape": [
+                  11
+                ],
+                "low": "array([-inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf])",
+                "high": "array([inf, inf, inf, inf, inf, inf, inf, inf, inf, inf, inf])",
+                "bounded_below": "array([False, False, False, False, False, False, False, False, False,\n       False, False])",
+                "bounded_above": "array([False, False, False, False, False, False, False, False, False,\n       False, False])",
+                "np_random": "RandomState(MT19937) at 0x7FE53DB72490",
+                "$type": "gym.spaces.box.Box"
+              },
+              "np_random": "RandomState(MT19937) at 0x7FE53DB725A0",
+              "_ezpickle_args": [],
+              "_ezpickle_kwargs": {},
+              "spec": {
+                "id": "Hopper-v2",
+                "entry_point": "gym.envs.mujoco:HopperEnv",
+                "reward_threshold": 3800.0,
+                "nondeterministic": false,
+                "max_episode_steps": 1000,
+                "_kwargs": {},
+                "_env_name": "Hopper",
+                "$type": "gym.envs.registration.EnvSpec"
+              },
+              "$type": "gym.envs.mujoco.hopper.HopperEnv"
+            },
+            "action_space": {
+              "dtype": "dtype('float32')",
+              "shape": [
+                3
+              ],
+              "low": "array([-1., -1., -1.], dtype=float32)",
+              "high": "array([1., 1., 1.], dtype=float32)",
+              "bounded_below": "array([ True,  True,  True])",
+              "bounded_above": "array([ True,  True,  True])",
+              "np_random": "RandomState(MT19937) at 0x7FE53DB72380",
+              "$type": "gym.spaces.box.Box"
+            },
+            "observation_space": {
+              "dtype": "dtype('float64')",
+              "shape": [
+                11
+              ],
+              "low": "array([-inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf])",
+              "high": "array([inf, inf, inf, inf, inf, inf, inf, inf, inf, inf, inf])",
+              "bounded_below": "array([False, False, False, False, False, False, False, False, False,\n       False, False])",
+              "bounded_above": "array([False, False, False, False, False, False, False, False, False,\n       False, False])",
+              "np_random": "RandomState(MT19937) at 0x7FE53DB72490",
+              "$type": "gym.spaces.box.Box"
+            },
+            "reward_range": [
+              -Infinity,
+              Infinity
+            ],
+            "metadata": {
+              "render.modes": [
+                "human",
+                "rgb_array",
+                "depth_array"
+              ],
+              "video.frames_per_second": 125
+            },
+            "_max_episode_steps": 1000,
+            "_elapsed_steps": "None",
+            "$type": "gym.wrappers.time_limit.TimeLimit"
+          },
+          "_max_episode_length": 1000,
+          "_render_modes": [
+            "human",
+            "rgb_array",
+            "depth_array"
+          ],
+          "_step_cnt": "None",
+          "_visualize": false,
+          "_action_space": {
+            "dtype": "dtype('float32')",
+            "shape": [
+              3
+            ],
+            "low": "array([-1., -1., -1.], dtype=float32)",
+            "high": "array([1., 1., 1.], dtype=float32)",
+            "bounded_below": "array([ True,  True,  True])",
+            "bounded_above": "array([ True,  True,  True])",
+            "np_random": "RandomState(MT19937) at 0x7FE53DB726B0",
+            "$type": "akro.box.Box"
+          },
+          "_observation_space": {
+            "dtype": "dtype('float32')",
+            "shape": [
+              11
+            ],
+            "low": "array([-inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf],\n      dtype=float32)",
+            "high": "array([inf, inf, inf, inf, inf, inf, inf, inf, inf, inf, inf],\n      dtype=float32)",
+            "bounded_below": "array([False, False, False, False, False, False, False, False, False,\n       False, False])",
+            "bounded_above": "array([False, False, False, False, False, False, False, False, False,\n       False, False])",
+            "np_random": "RandomState(MT19937) at 0x7FE53DB727C0",
+            "$type": "akro.box.Box"
+          },
+          "_spec": {
+            "max_episode_length": 1000,
+            "input_space": {
+              "dtype": "dtype('float32')",
+              "shape": [
+                3
+              ],
+              "low": "array([-1., -1., -1.], dtype=float32)",
+              "high": "array([1., 1., 1.], dtype=float32)",
+              "bounded_below": "array([ True,  True,  True])",
+              "bounded_above": "array([ True,  True,  True])",
+              "np_random": "RandomState(MT19937) at 0x7FE53DB726B0",
+              "$type": "akro.box.Box"
+            },
+            "output_space": {
+              "dtype": "dtype('float32')",
+              "shape": [
+                11
+              ],
+              "low": "array([-inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf],\n      dtype=float32)",
+              "high": "array([inf, inf, inf, inf, inf, inf, inf, inf, inf, inf, inf],\n      dtype=float32)",
+              "bounded_below": "array([False, False, False, False, False, False, False, False, False,\n       False, False])",
+              "bounded_above": "array([False, False, False, False, False, False, False, False, False,\n       False, False])",
+              "np_random": "RandomState(MT19937) at 0x7FE53DB727C0",
+              "$type": "akro.box.Box"
+            },
+            "$type": "garage._environment.EnvSpec"
+          },
+          "_env_info": "None",
+          "$type": "garage.envs.gym_env.GymEnv"
+        },
+        {
+          "_env": {
+            "env": {
+              "frame_skip": 4,
+              "model": "<mujoco_py.cymj.PyMjModel object at 0x559b6a17d7a0>",
+              "sim": "<mujoco_py.cymj.MjSim object at 0x7fe53db007a0>",
+              "data": "<mujoco_py.cymj.PyMjData object at 0x559b6a172c10>",
+              "viewer": "None",
+              "_viewers": {},
+              "metadata": {
+                "render.modes": [
+                  "human",
+                  "rgb_array",
+                  "depth_array"
+                ],
+                "video.frames_per_second": 125
+              },
+              "init_qpos": "array([0.  , 1.25, 0.  , 0.  , 0.  , 0.  ])",
+              "init_qvel": "array([0., 0., 0., 0., 0., 0.])",
+              "action_space": {
+                "dtype": "dtype('float32')",
+                "shape": [
+                  3
+                ],
+                "low": "array([-1., -1., -1.], dtype=float32)",
+                "high": "array([1., 1., 1.], dtype=float32)",
+                "bounded_below": "array([ True,  True,  True])",
+                "bounded_above": "array([ True,  True,  True])",
+                "np_random": "RandomState(MT19937) at 0x7FE53DB72380",
+                "$type": "gym.spaces.box.Box"
+              },
+              "observation_space": {
+                "dtype": "dtype('float64')",
+                "shape": [
+                  11
+                ],
+                "low": "array([-inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf])",
+                "high": "array([inf, inf, inf, inf, inf, inf, inf, inf, inf, inf, inf])",
+                "bounded_below": "array([False, False, False, False, False, False, False, False, False,\n       False, False])",
+                "bounded_above": "array([False, False, False, False, False, False, False, False, False,\n       False, False])",
+                "np_random": "RandomState(MT19937) at 0x7FE53DB72490",
+                "$type": "gym.spaces.box.Box"
+              },
+              "np_random": "RandomState(MT19937) at 0x7FE53DB725A0",
+              "_ezpickle_args": [],
+              "_ezpickle_kwargs": {},
+              "spec": {
+                "id": "Hopper-v2",
+                "entry_point": "gym.envs.mujoco:HopperEnv",
+                "reward_threshold": 3800.0,
+                "nondeterministic": false,
+                "max_episode_steps": 1000,
+                "_kwargs": {},
+                "_env_name": "Hopper",
+                "$type": "gym.envs.registration.EnvSpec"
+              },
+              "$type": "gym.envs.mujoco.hopper.HopperEnv"
+            },
+            "action_space": {
+              "dtype": "dtype('float32')",
+              "shape": [
+                3
+              ],
+              "low": "array([-1., -1., -1.], dtype=float32)",
+              "high": "array([1., 1., 1.], dtype=float32)",
+              "bounded_below": "array([ True,  True,  True])",
+              "bounded_above": "array([ True,  True,  True])",
+              "np_random": "RandomState(MT19937) at 0x7FE53DB72380",
+              "$type": "gym.spaces.box.Box"
+            },
+            "observation_space": {
+              "dtype": "dtype('float64')",
+              "shape": [
+                11
+              ],
+              "low": "array([-inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf])",
+              "high": "array([inf, inf, inf, inf, inf, inf, inf, inf, inf, inf, inf])",
+              "bounded_below": "array([False, False, False, False, False, False, False, False, False,\n       False, False])",
+              "bounded_above": "array([False, False, False, False, False, False, False, False, False,\n       False, False])",
+              "np_random": "RandomState(MT19937) at 0x7FE53DB72490",
+              "$type": "gym.spaces.box.Box"
+            },
+            "reward_range": [
+              -Infinity,
+              Infinity
+            ],
+            "metadata": {
+              "render.modes": [
+                "human",
+                "rgb_array",
+                "depth_array"
+              ],
+              "video.frames_per_second": 125
+            },
+            "_max_episode_steps": 1000,
+            "_elapsed_steps": "None",
+            "$type": "gym.wrappers.time_limit.TimeLimit"
+          },
+          "_max_episode_length": 1000,
+          "_render_modes": [
+            "human",
+            "rgb_array",
+            "depth_array"
+          ],
+          "_step_cnt": "None",
+          "_visualize": false,
+          "_action_space": {
+            "dtype": "dtype('float32')",
+            "shape": [
+              3
+            ],
+            "low": "array([-1., -1., -1.], dtype=float32)",
+            "high": "array([1., 1., 1.], dtype=float32)",
+            "bounded_below": "array([ True,  True,  True])",
+            "bounded_above": "array([ True,  True,  True])",
+            "np_random": "RandomState(MT19937) at 0x7FE53DB726B0",
+            "$type": "akro.box.Box"
+          },
+          "_observation_space": {
+            "dtype": "dtype('float32')",
+            "shape": [
+              11
+            ],
+            "low": "array([-inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf],\n      dtype=float32)",
+            "high": "array([inf, inf, inf, inf, inf, inf, inf, inf, inf, inf, inf],\n      dtype=float32)",
+            "bounded_below": "array([False, False, False, False, False, False, False, False, False,\n       False, False])",
+            "bounded_above": "array([False, False, False, False, False, False, False, False, False,\n       False, False])",
+            "np_random": "RandomState(MT19937) at 0x7FE53DB727C0",
+            "$type": "akro.box.Box"
+          },
+          "_spec": {
+            "max_episode_length": 1000,
+            "input_space": {
+              "dtype": "dtype('float32')",
+              "shape": [
+                3
+              ],
+              "low": "array([-1., -1., -1.], dtype=float32)",
+              "high": "array([1., 1., 1.], dtype=float32)",
+              "bounded_below": "array([ True,  True,  True])",
+              "bounded_above": "array([ True,  True,  True])",
+              "np_random": "RandomState(MT19937) at 0x7FE53DB726B0",
+              "$type": "akro.box.Box"
+            },
+            "output_space": {
+              "dtype": "dtype('float32')",
+              "shape": [
+                11
+              ],
+              "low": "array([-inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf],\n      dtype=float32)",
+              "high": "array([inf, inf, inf, inf, inf, inf, inf, inf, inf, inf, inf],\n      dtype=float32)",
+              "bounded_below": "array([False, False, False, False, False, False, False, False, False,\n       False, False])",
+              "bounded_above": "array([False, False, False, False, False, False, False, False, False,\n       False, False])",
+              "np_random": "RandomState(MT19937) at 0x7FE53DB727C0",
+              "$type": "akro.box.Box"
+            },
+            "$type": "garage._environment.EnvSpec"
+          },
+          "_env_info": "None",
+          "$type": "garage.envs.gym_env.GymEnv"
+        },
+        {
+          "_env": {
+            "env": {
+              "frame_skip": 4,
+              "model": "<mujoco_py.cymj.PyMjModel object at 0x559b6a17d7a0>",
+              "sim": "<mujoco_py.cymj.MjSim object at 0x7fe53db007a0>",
+              "data": "<mujoco_py.cymj.PyMjData object at 0x559b6a172c10>",
+              "viewer": "None",
+              "_viewers": {},
+              "metadata": {
+                "render.modes": [
+                  "human",
+                  "rgb_array",
+                  "depth_array"
+                ],
+                "video.frames_per_second": 125
+              },
+              "init_qpos": "array([0.  , 1.25, 0.  , 0.  , 0.  , 0.  ])",
+              "init_qvel": "array([0., 0., 0., 0., 0., 0.])",
+              "action_space": {
+                "dtype": "dtype('float32')",
+                "shape": [
+                  3
+                ],
+                "low": "array([-1., -1., -1.], dtype=float32)",
+                "high": "array([1., 1., 1.], dtype=float32)",
+                "bounded_below": "array([ True,  True,  True])",
+                "bounded_above": "array([ True,  True,  True])",
+                "np_random": "RandomState(MT19937) at 0x7FE53DB72380",
+                "$type": "gym.spaces.box.Box"
+              },
+              "observation_space": {
+                "dtype": "dtype('float64')",
+                "shape": [
+                  11
+                ],
+                "low": "array([-inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf])",
+                "high": "array([inf, inf, inf, inf, inf, inf, inf, inf, inf, inf, inf])",
+                "bounded_below": "array([False, False, False, False, False, False, False, False, False,\n       False, False])",
+                "bounded_above": "array([False, False, False, False, False, False, False, False, False,\n       False, False])",
+                "np_random": "RandomState(MT19937) at 0x7FE53DB72490",
+                "$type": "gym.spaces.box.Box"
+              },
+              "np_random": "RandomState(MT19937) at 0x7FE53DB725A0",
+              "_ezpickle_args": [],
+              "_ezpickle_kwargs": {},
+              "spec": {
+                "id": "Hopper-v2",
+                "entry_point": "gym.envs.mujoco:HopperEnv",
+                "reward_threshold": 3800.0,
+                "nondeterministic": false,
+                "max_episode_steps": 1000,
+                "_kwargs": {},
+                "_env_name": "Hopper",
+                "$type": "gym.envs.registration.EnvSpec"
+              },
+              "$type": "gym.envs.mujoco.hopper.HopperEnv"
+            },
+            "action_space": {
+              "dtype": "dtype('float32')",
+              "shape": [
+                3
+              ],
+              "low": "array([-1., -1., -1.], dtype=float32)",
+              "high": "array([1., 1., 1.], dtype=float32)",
+              "bounded_below": "array([ True,  True,  True])",
+              "bounded_above": "array([ True,  True,  True])",
+              "np_random": "RandomState(MT19937) at 0x7FE53DB72380",
+              "$type": "gym.spaces.box.Box"
+            },
+            "observation_space": {
+              "dtype": "dtype('float64')",
+              "shape": [
+                11
+              ],
+              "low": "array([-inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf])",
+              "high": "array([inf, inf, inf, inf, inf, inf, inf, inf, inf, inf, inf])",
+              "bounded_below": "array([False, False, False, False, False, False, False, False, False,\n       False, False])",
+              "bounded_above": "array([False, False, False, False, False, False, False, False, False,\n       False, False])",
+              "np_random": "RandomState(MT19937) at 0x7FE53DB72490",
+              "$type": "gym.spaces.box.Box"
+            },
+            "reward_range": [
+              -Infinity,
+              Infinity
+            ],
+            "metadata": {
+              "render.modes": [
+                "human",
+                "rgb_array",
+                "depth_array"
+              ],
+              "video.frames_per_second": 125
+            },
+            "_max_episode_steps": 1000,
+            "_elapsed_steps": "None",
+            "$type": "gym.wrappers.time_limit.TimeLimit"
+          },
+          "_max_episode_length": 1000,
+          "_render_modes": [
+            "human",
+            "rgb_array",
+            "depth_array"
+          ],
+          "_step_cnt": "None",
+          "_visualize": false,
+          "_action_space": {
+            "dtype": "dtype('float32')",
+            "shape": [
+              3
+            ],
+            "low": "array([-1., -1., -1.], dtype=float32)",
+            "high": "array([1., 1., 1.], dtype=float32)",
+            "bounded_below": "array([ True,  True,  True])",
+            "bounded_above": "array([ True,  True,  True])",
+            "np_random": "RandomState(MT19937) at 0x7FE53DB726B0",
+            "$type": "akro.box.Box"
+          },
+          "_observation_space": {
+            "dtype": "dtype('float32')",
+            "shape": [
+              11
+            ],
+            "low": "array([-inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf],\n      dtype=float32)",
+            "high": "array([inf, inf, inf, inf, inf, inf, inf, inf, inf, inf, inf],\n      dtype=float32)",
+            "bounded_below": "array([False, False, False, False, False, False, False, False, False,\n       False, False])",
+            "bounded_above": "array([False, False, False, False, False, False, False, False, False,\n       False, False])",
+            "np_random": "RandomState(MT19937) at 0x7FE53DB727C0",
+            "$type": "akro.box.Box"
+          },
+          "_spec": {
+            "max_episode_length": 1000,
+            "input_space": {
+              "dtype": "dtype('float32')",
+              "shape": [
+                3
+              ],
+              "low": "array([-1., -1., -1.], dtype=float32)",
+              "high": "array([1., 1., 1.], dtype=float32)",
+              "bounded_below": "array([ True,  True,  True])",
+              "bounded_above": "array([ True,  True,  True])",
+              "np_random": "RandomState(MT19937) at 0x7FE53DB726B0",
+              "$type": "akro.box.Box"
+            },
+            "output_space": {
+              "dtype": "dtype('float32')",
+              "shape": [
+                11
+              ],
+              "low": "array([-inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf],\n      dtype=float32)",
+              "high": "array([inf, inf, inf, inf, inf, inf, inf, inf, inf, inf, inf],\n      dtype=float32)",
+              "bounded_below": "array([False, False, False, False, False, False, False, False, False,\n       False, False])",
+              "bounded_above": "array([False, False, False, False, False, False, False, False, False,\n       False, False])",
+              "np_random": "RandomState(MT19937) at 0x7FE53DB727C0",
+              "$type": "akro.box.Box"
+            },
+            "$type": "garage._environment.EnvSpec"
+          },
+          "_env_info": "None",
+          "$type": "garage.envs.gym_env.GymEnv"
+        }
+      ],
+      "_all_workers": {
+        "0": "Actor(SamplerWorker,a67dc375e60ddd1a23bd3bb901000000)",
+        "1": "Actor(SamplerWorker,63964fa4841d4a2ecb45751801000000)",
+        "2": "Actor(SamplerWorker,69a6825d641b461327313d1c01000000)",
+        "3": "Actor(SamplerWorker,ee4e90da584ab0eb031f18d401000000)"
+      },
+      "_workers_started": true,
+      "total_env_steps": 0,
+      "$type": "garage.sampler.ray_sampler.RaySampler"
+    },
+    "_target_qf1": {
+      "_env_spec": {
+        "max_episode_length": 1000,
+        "input_space": {
+          "dtype": "dtype('float32')",
+          "shape": [
+            3
+          ],
+          "low": "array([-1., -1., -1.], dtype=float32)",
+          "high": "array([1., 1., 1.], dtype=float32)",
+          "bounded_below": "array([ True,  True,  True])",
+          "bounded_above": "array([ True,  True,  True])",
+          "np_random": "RandomState(MT19937) at 0x7FE53D743E20",
+          "$type": "akro.box.Box"
+        },
+        "output_space": {
+          "dtype": "dtype('float32')",
+          "shape": [
+            11
+          ],
+          "low": "array([-inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf],\n      dtype=float32)",
+          "high": "array([inf, inf, inf, inf, inf, inf, inf, inf, inf, inf, inf],\n      dtype=float32)",
+          "bounded_below": "array([False, False, False, False, False, False, False, False, False,\n       False, False])",
+          "bounded_above": "array([False, False, False, False, False, False, False, False, False,\n       False, False])",
+          "np_random": "RandomState(MT19937) at 0x7FE53D542AF0",
+          "$type": "akro.box.Box"
+        },
+        "$type": "garage._environment.EnvSpec"
+      },
+      "_obs_dim": 11.0,
+      "_action_dim": 3.0,
+      "training": true,
+      "_parameters": {},
+      "_buffers": {},
+      "_non_persistent_buffers_set": [],
+      "_backward_hooks": {},
+      "_forward_hooks": {},
+      "_forward_pre_hooks": {},
+      "_state_dict_hooks": {},
+      "_load_state_dict_pre_hooks": {},
+      "_modules": {
+        "_layers": {
+          "training": true,
+          "_parameters": {},
+          "_buffers": {},
+          "_non_persistent_buffers_set": [],
+          "_backward_hooks": {},
+          "_forward_hooks": {},
+          "_forward_pre_hooks": {},
+          "_state_dict_hooks": {},
+          "_load_state_dict_pre_hooks": {},
+          "_modules": {
+            "0": {
+              "training": true,
+              "_parameters": {},
+              "_buffers": {},
+              "_non_persistent_buffers_set": [],
+              "_backward_hooks": {},
+              "_forward_hooks": {},
+              "_forward_pre_hooks": {},
+              "_state_dict_hooks": {},
+              "_load_state_dict_pre_hooks": {},
+              "_modules": {
+                "linear": {
+                  "training": true,
+                  "_parameters": {
+                    "weight": {
+                      "$type": "torch.nn.parameter.Parameter"
+                    },
+                    "bias": {
+                      "$type": "torch.nn.parameter.Parameter"
+                    }
+                  },
+                  "_buffers": {},
+                  "_non_persistent_buffers_set": [],
+                  "_backward_hooks": {},
+                  "_forward_hooks": {},
+                  "_forward_pre_hooks": {},
+                  "_state_dict_hooks": {},
+                  "_load_state_dict_pre_hooks": {},
+                  "_modules": {},
+                  "in_features": 14.0,
+                  "out_features": 256,
+                  "$type": "torch.nn.modules.linear.Linear"
+                },
+                "non_linearity": {
+                  "training": true,
+                  "_parameters": {},
+                  "_buffers": {},
+                  "_non_persistent_buffers_set": [],
+                  "_backward_hooks": {},
+                  "_forward_hooks": {},
+                  "_forward_pre_hooks": {},
+                  "_state_dict_hooks": {},
+                  "_load_state_dict_pre_hooks": {},
+                  "_modules": {},
+                  "module": "<built-in method tanh of type object at 0x7fe5c5f66700>",
+                  "$type": "garage.torch._functions.NonLinearity"
+                }
+              },
+              "$type": "torch.nn.modules.container.Sequential"
+            },
+            "1": {
+              "training": true,
+              "_parameters": {},
+              "_buffers": {},
+              "_non_persistent_buffers_set": [],
+              "_backward_hooks": {},
+              "_forward_hooks": {},
+              "_forward_pre_hooks": {},
+              "_state_dict_hooks": {},
+              "_load_state_dict_pre_hooks": {},
+              "_modules": {
+                "linear": {
+                  "training": true,
+                  "_parameters": {
+                    "weight": {
+                      "$type": "torch.nn.parameter.Parameter"
+                    },
+                    "bias": {
+                      "$type": "torch.nn.parameter.Parameter"
+                    }
+                  },
+                  "_buffers": {},
+                  "_non_persistent_buffers_set": [],
+                  "_backward_hooks": {},
+                  "_forward_hooks": {},
+                  "_forward_pre_hooks": {},
+                  "_state_dict_hooks": {},
+                  "_load_state_dict_pre_hooks": {},
+                  "_modules": {},
+                  "in_features": 256,
+                  "out_features": 128,
+                  "$type": "torch.nn.modules.linear.Linear"
+                },
+                "non_linearity": {
+                  "training": true,
+                  "_parameters": {},
+                  "_buffers": {},
+                  "_non_persistent_buffers_set": [],
+                  "_backward_hooks": {},
+                  "_forward_hooks": {},
+                  "_forward_pre_hooks": {},
+                  "_state_dict_hooks": {},
+                  "_load_state_dict_pre_hooks": {},
+                  "_modules": {},
+                  "module": "<built-in method tanh of type object at 0x7fe5c5f66700>",
+                  "$type": "garage.torch._functions.NonLinearity"
+                }
+              },
+              "$type": "torch.nn.modules.container.Sequential"
+            }
+          },
+          "$type": "torch.nn.modules.container.ModuleList"
+        },
+        "_output_layers": {
+          "training": true,
+          "_parameters": {},
+          "_buffers": {},
+          "_non_persistent_buffers_set": [],
+          "_backward_hooks": {},
+          "_forward_hooks": {},
+          "_forward_pre_hooks": {},
+          "_state_dict_hooks": {},
+          "_load_state_dict_pre_hooks": {},
+          "_modules": {
+            "0": {
+              "training": true,
+              "_parameters": {},
+              "_buffers": {},
+              "_non_persistent_buffers_set": [],
+              "_backward_hooks": {},
+              "_forward_hooks": {},
+              "_forward_pre_hooks": {},
+              "_state_dict_hooks": {},
+              "_load_state_dict_pre_hooks": {},
+              "_modules": {
+                "linear": {
+                  "training": true,
+                  "_parameters": {
+                    "weight": {
+                      "$type": "torch.nn.parameter.Parameter"
+                    },
+                    "bias": {
+                      "$type": "torch.nn.parameter.Parameter"
+                    }
+                  },
+                  "_buffers": {},
+                  "_non_persistent_buffers_set": [],
+                  "_backward_hooks": {},
+                  "_forward_hooks": {},
+                  "_forward_pre_hooks": {},
+                  "_state_dict_hooks": {},
+                  "_load_state_dict_pre_hooks": {},
+                  "_modules": {},
+                  "in_features": 128,
+                  "out_features": 1,
+                  "$type": "torch.nn.modules.linear.Linear"
+                }
+              },
+              "$type": "torch.nn.modules.container.Sequential"
+            }
+          },
+          "$type": "torch.nn.modules.container.ModuleList"
+        }
+      },
+      "_output_dim": 1,
+      "$type": "garage.torch.q_functions.continuous_mlp_q_function.ContinuousMLPQFunction"
+    },
+    "_target_qf2": {
+      "_env_spec": {
+        "max_episode_length": 1000,
+        "input_space": {
+          "dtype": "dtype('float32')",
+          "shape": [
+            3
+          ],
+          "low": "array([-1., -1., -1.], dtype=float32)",
+          "high": "array([1., 1., 1.], dtype=float32)",
+          "bounded_below": "array([ True,  True,  True])",
+          "bounded_above": "array([ True,  True,  True])",
+          "np_random": "RandomState(MT19937) at 0x7FE53CC90380",
+          "$type": "akro.box.Box"
+        },
+        "output_space": {
+          "dtype": "dtype('float32')",
+          "shape": [
+            11
+          ],
+          "low": "array([-inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf],\n      dtype=float32)",
+          "high": "array([inf, inf, inf, inf, inf, inf, inf, inf, inf, inf, inf],\n      dtype=float32)",
+          "bounded_below": "array([False, False, False, False, False, False, False, False, False,\n       False, False])",
+          "bounded_above": "array([False, False, False, False, False, False, False, False, False,\n       False, False])",
+          "np_random": "RandomState(MT19937) at 0x7FE53CC905A0",
+          "$type": "akro.box.Box"
+        },
+        "$type": "garage._environment.EnvSpec"
+      },
+      "_obs_dim": 11.0,
+      "_action_dim": 3.0,
+      "training": true,
+      "_parameters": {},
+      "_buffers": {},
+      "_non_persistent_buffers_set": [],
+      "_backward_hooks": {},
+      "_forward_hooks": {},
+      "_forward_pre_hooks": {},
+      "_state_dict_hooks": {},
+      "_load_state_dict_pre_hooks": {},
+      "_modules": {
+        "_layers": {
+          "training": true,
+          "_parameters": {},
+          "_buffers": {},
+          "_non_persistent_buffers_set": [],
+          "_backward_hooks": {},
+          "_forward_hooks": {},
+          "_forward_pre_hooks": {},
+          "_state_dict_hooks": {},
+          "_load_state_dict_pre_hooks": {},
+          "_modules": {
+            "0": {
+              "training": true,
+              "_parameters": {},
+              "_buffers": {},
+              "_non_persistent_buffers_set": [],
+              "_backward_hooks": {},
+              "_forward_hooks": {},
+              "_forward_pre_hooks": {},
+              "_state_dict_hooks": {},
+              "_load_state_dict_pre_hooks": {},
+              "_modules": {
+                "linear": {
+                  "training": true,
+                  "_parameters": {
+                    "weight": {
+                      "$type": "torch.nn.parameter.Parameter"
+                    },
+                    "bias": {
+                      "$type": "torch.nn.parameter.Parameter"
+                    }
+                  },
+                  "_buffers": {},
+                  "_non_persistent_buffers_set": [],
+                  "_backward_hooks": {},
+                  "_forward_hooks": {},
+                  "_forward_pre_hooks": {},
+                  "_state_dict_hooks": {},
+                  "_load_state_dict_pre_hooks": {},
+                  "_modules": {},
+                  "in_features": 14.0,
+                  "out_features": 256,
+                  "$type": "torch.nn.modules.linear.Linear"
+                },
+                "non_linearity": {
+                  "training": true,
+                  "_parameters": {},
+                  "_buffers": {},
+                  "_non_persistent_buffers_set": [],
+                  "_backward_hooks": {},
+                  "_forward_hooks": {},
+                  "_forward_pre_hooks": {},
+                  "_state_dict_hooks": {},
+                  "_load_state_dict_pre_hooks": {},
+                  "_modules": {},
+                  "module": "<built-in method tanh of type object at 0x7fe5c5f66700>",
+                  "$type": "garage.torch._functions.NonLinearity"
+                }
+              },
+              "$type": "torch.nn.modules.container.Sequential"
+            },
+            "1": {
+              "training": true,
+              "_parameters": {},
+              "_buffers": {},
+              "_non_persistent_buffers_set": [],
+              "_backward_hooks": {},
+              "_forward_hooks": {},
+              "_forward_pre_hooks": {},
+              "_state_dict_hooks": {},
+              "_load_state_dict_pre_hooks": {},
+              "_modules": {
+                "linear": {
+                  "training": true,
+                  "_parameters": {
+                    "weight": {
+                      "$type": "torch.nn.parameter.Parameter"
+                    },
+                    "bias": {
+                      "$type": "torch.nn.parameter.Parameter"
+                    }
+                  },
+                  "_buffers": {},
+                  "_non_persistent_buffers_set": [],
+                  "_backward_hooks": {},
+                  "_forward_hooks": {},
+                  "_forward_pre_hooks": {},
+                  "_state_dict_hooks": {},
+                  "_load_state_dict_pre_hooks": {},
+                  "_modules": {},
+                  "in_features": 256,
+                  "out_features": 128,
+                  "$type": "torch.nn.modules.linear.Linear"
+                },
+                "non_linearity": {
+                  "training": true,
+                  "_parameters": {},
+                  "_buffers": {},
+                  "_non_persistent_buffers_set": [],
+                  "_backward_hooks": {},
+                  "_forward_hooks": {},
+                  "_forward_pre_hooks": {},
+                  "_state_dict_hooks": {},
+                  "_load_state_dict_pre_hooks": {},
+                  "_modules": {},
+                  "module": "<built-in method tanh of type object at 0x7fe5c5f66700>",
+                  "$type": "garage.torch._functions.NonLinearity"
+                }
+              },
+              "$type": "torch.nn.modules.container.Sequential"
+            }
+          },
+          "$type": "torch.nn.modules.container.ModuleList"
+        },
+        "_output_layers": {
+          "training": true,
+          "_parameters": {},
+          "_buffers": {},
+          "_non_persistent_buffers_set": [],
+          "_backward_hooks": {},
+          "_forward_hooks": {},
+          "_forward_pre_hooks": {},
+          "_state_dict_hooks": {},
+          "_load_state_dict_pre_hooks": {},
+          "_modules": {
+            "0": {
+              "training": true,
+              "_parameters": {},
+              "_buffers": {},
+              "_non_persistent_buffers_set": [],
+              "_backward_hooks": {},
+              "_forward_hooks": {},
+              "_forward_pre_hooks": {},
+              "_state_dict_hooks": {},
+              "_load_state_dict_pre_hooks": {},
+              "_modules": {
+                "linear": {
+                  "training": true,
+                  "_parameters": {
+                    "weight": {
+                      "$type": "torch.nn.parameter.Parameter"
+                    },
+                    "bias": {
+                      "$type": "torch.nn.parameter.Parameter"
+                    }
+                  },
+                  "_buffers": {},
+                  "_non_persistent_buffers_set": [],
+                  "_backward_hooks": {},
+                  "_forward_hooks": {},
+                  "_forward_pre_hooks": {},
+                  "_state_dict_hooks": {},
+                  "_load_state_dict_pre_hooks": {},
+                  "_modules": {},
+                  "in_features": 128,
+                  "out_features": 1,
+                  "$type": "torch.nn.modules.linear.Linear"
+                }
+              },
+              "$type": "torch.nn.modules.container.Sequential"
+            }
+          },
+          "$type": "torch.nn.modules.container.ModuleList"
+        }
+      },
+      "_output_dim": 1,
+      "$type": "garage.torch.q_functions.continuous_mlp_q_function.ContinuousMLPQFunction"
+    },
+    "_policy_optimizer": {
+      "defaults": {
+        "lr": 0.00025,
+        "betas": [
+          0.9,
+          0.999
+        ],
+        "eps": 1e-08,
+        "weight_decay": 0,
+        "amsgrad": false
+      },
+      "state": {},
+      "param_groups": [
+        {
+          "params": [
+            {
+              "$type": "torch.nn.parameter.Parameter"
+            },
+            {
+              "$type": "torch.nn.parameter.Parameter"
+            },
+            {
+              "$type": "torch.nn.parameter.Parameter"
+            },
+            {
+              "$type": "torch.nn.parameter.Parameter"
+            },
+            {
+              "$type": "torch.nn.parameter.Parameter"
+            },
+            {
+              "$type": "torch.nn.parameter.Parameter"
+            },
+            {
+              "$type": "torch.nn.parameter.Parameter"
+            },
+            {
+              "$type": "torch.nn.parameter.Parameter"
+            },
+            {
+              "$type": "torch.nn.parameter.Parameter"
+            }
+          ],
+          "lr": 0.00025,
+          "betas": [
+            0.9,
+            0.999
+          ],
+          "eps": 1e-08,
+          "weight_decay": 0,
+          "amsgrad": false
+        }
+      ],
+      "$type": "torch.optim.adam.Adam"
+    },
+    "_qf1_optimizer": {
+      "defaults": {
+        "lr": 0.0005,
+        "betas": [
+          0.9,
+          0.999
+        ],
+        "eps": 1e-08,
+        "weight_decay": 0,
+        "amsgrad": false
+      },
+      "state": {},
+      "param_groups": [
+        {
+          "params": [
+            {
+              "$type": "torch.nn.parameter.Parameter"
+            },
+            {
+              "$type": "torch.nn.parameter.Parameter"
+            },
+            {
+              "$type": "torch.nn.parameter.Parameter"
+            },
+            {
+              "$type": "torch.nn.parameter.Parameter"
+            },
+            {
+              "$type": "torch.nn.parameter.Parameter"
+            },
+            {
+              "$type": "torch.nn.parameter.Parameter"
+            }
+          ],
+          "lr": 0.0005,
+          "betas": [
+            0.9,
+            0.999
+          ],
+          "eps": 1e-08,
+          "weight_decay": 0,
+          "amsgrad": false
+        }
+      ],
+      "$type": "torch.optim.adam.Adam"
+    },
+    "_qf2_optimizer": {
+      "defaults": {
+        "lr": 0.0005,
+        "betas": [
+          0.9,
+          0.999
+        ],
+        "eps": 1e-08,
+        "weight_decay": 0,
+        "amsgrad": false
+      },
+      "state": {},
+      "param_groups": [
+        {
+          "params": [
+            {
+              "$type": "torch.nn.parameter.Parameter"
+            },
+            {
+              "$type": "torch.nn.parameter.Parameter"
+            },
+            {
+              "$type": "torch.nn.parameter.Parameter"
+            },
+            {
+              "$type": "torch.nn.parameter.Parameter"
+            },
+            {
+              "$type": "torch.nn.parameter.Parameter"
+            },
+            {
+              "$type": "torch.nn.parameter.Parameter"
+            }
+          ],
+          "lr": 0.0005,
+          "betas": [
+            0.9,
+            0.999
+          ],
+          "eps": 1e-08,
+          "weight_decay": 0,
+          "amsgrad": false
+        }
+      ],
+      "$type": "torch.optim.adam.Adam"
+    },
+    "_use_automatic_entropy_tuning": true,
+    "_fixed_alpha": "None",
+    "_target_entropy": -3,
+    "_log_alpha": {
+      "$type": "torch.Tensor"
+    },
+    "_alpha_optimizer": {
+      "defaults": {
+        "lr": 0.00025,
+        "betas": [
+          0.9,
+          0.999
+        ],
+        "eps": 1e-08,
+        "weight_decay": 0,
+        "amsgrad": false
+      },
+      "state": {},
+      "param_groups": [
+        {
+          "params": [
+            {
+              "$type": "torch.Tensor"
+            }
+          ],
+          "lr": 0.00025,
+          "betas": [
+            0.9,
+            0.999
+          ],
+          "eps": 1e-08,
+          "weight_decay": 0,
+          "amsgrad": false
+        }
+      ],
+      "$type": "torch.optim.adam.Adam"
+    },
+    "episode_rewards": [],
+    "_lambd": {
+      "_n_epochs": 200.0,
+      "_itr": 0,
+      "_init_lambd": 1.0,
+      "_lambd": 1.0,
+      "$type": "garage.shortrl.lambda_schedulers.TanhLS"
+    },
+    "_heuristic": {
+      "$type": "builtins.function"
+    },
+    "_discount0": 0.999,
+    "_reward_avg": {
+      "_avg": {
+        "_x": 0,
+        "_x2": 0,
+        "_rate": 0.001,
+        "_itr": 0,
+        "_scale_target": 1,
+        "$type": "garage.shortrl.algos._functions.ExpAvg"
+      },
+      "_upper_bound": "None",
+      "_lower_bound": "None",
+      "_scale_target": 1,
+      "bias": 0,
+      "scale": 1,
+      "$type": "garage.shortrl.algos._functions.MaxAvg"
+    },
+    "$type": "garage.shortrl.algos.sac.SAC"
+  },
+  "_env": {
+    "_env": {
+      "env": {
+        "frame_skip": 4,
+        "model": "<mujoco_py.cymj.PyMjModel object at 0x559b6a17d7a0>",
+        "sim": "<mujoco_py.cymj.MjSim object at 0x7fe53db007a0>",
+        "data": "<mujoco_py.cymj.PyMjData object at 0x559b6a172c10>",
+        "viewer": "None",
+        "_viewers": {},
+        "metadata": {
+          "render.modes": [
+            "human",
+            "rgb_array",
+            "depth_array"
+          ],
+          "video.frames_per_second": 125
+        },
+        "init_qpos": "array([0.  , 1.25, 0.  , 0.  , 0.  , 0.  ])",
+        "init_qvel": "array([0., 0., 0., 0., 0., 0.])",
+        "action_space": {
+          "dtype": "dtype('float32')",
+          "shape": [
+            3
+          ],
+          "low": "array([-1., -1., -1.], dtype=float32)",
+          "high": "array([1., 1., 1.], dtype=float32)",
+          "bounded_below": "array([ True,  True,  True])",
+          "bounded_above": "array([ True,  True,  True])",
+          "np_random": "RandomState(MT19937) at 0x7FE53DB72380",
+          "$type": "gym.spaces.box.Box"
+        },
+        "observation_space": {
+          "dtype": "dtype('float64')",
+          "shape": [
+            11
+          ],
+          "low": "array([-inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf])",
+          "high": "array([inf, inf, inf, inf, inf, inf, inf, inf, inf, inf, inf])",
+          "bounded_below": "array([False, False, False, False, False, False, False, False, False,\n       False, False])",
+          "bounded_above": "array([False, False, False, False, False, False, False, False, False,\n       False, False])",
+          "np_random": "RandomState(MT19937) at 0x7FE53DB72490",
+          "$type": "gym.spaces.box.Box"
+        },
+        "np_random": "RandomState(MT19937) at 0x7FE53DB725A0",
+        "_ezpickle_args": [],
+        "_ezpickle_kwargs": {},
+        "spec": {
+          "id": "Hopper-v2",
+          "entry_point": "gym.envs.mujoco:HopperEnv",
+          "reward_threshold": 3800.0,
+          "nondeterministic": false,
+          "max_episode_steps": 1000,
+          "_kwargs": {},
+          "_env_name": "Hopper",
+          "$type": "gym.envs.registration.EnvSpec"
+        },
+        "$type": "gym.envs.mujoco.hopper.HopperEnv"
+      },
+      "action_space": {
+        "dtype": "dtype('float32')",
+        "shape": [
+          3
+        ],
+        "low": "array([-1., -1., -1.], dtype=float32)",
+        "high": "array([1., 1., 1.], dtype=float32)",
+        "bounded_below": "array([ True,  True,  True])",
+        "bounded_above": "array([ True,  True,  True])",
+        "np_random": "RandomState(MT19937) at 0x7FE53DB72380",
+        "$type": "gym.spaces.box.Box"
+      },
+      "observation_space": {
+        "dtype": "dtype('float64')",
+        "shape": [
+          11
+        ],
+        "low": "array([-inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf])",
+        "high": "array([inf, inf, inf, inf, inf, inf, inf, inf, inf, inf, inf])",
+        "bounded_below": "array([False, False, False, False, False, False, False, False, False,\n       False, False])",
+        "bounded_above": "array([False, False, False, False, False, False, False, False, False,\n       False, False])",
+        "np_random": "RandomState(MT19937) at 0x7FE53DB72490",
+        "$type": "gym.spaces.box.Box"
+      },
+      "reward_range": [
+        -Infinity,
+        Infinity
+      ],
+      "metadata": {
+        "render.modes": [
+          "human",
+          "rgb_array",
+          "depth_array"
+        ],
+        "video.frames_per_second": 125
+      },
+      "_max_episode_steps": 1000,
+      "_elapsed_steps": "None",
+      "$type": "gym.wrappers.time_limit.TimeLimit"
+    },
+    "_max_episode_length": 1000,
+    "_render_modes": [
+      "human",
+      "rgb_array",
+      "depth_array"
+    ],
+    "_step_cnt": "None",
+    "_visualize": false,
+    "_action_space": {
+      "dtype": "dtype('float32')",
+      "shape": [
+        3
+      ],
+      "low": "array([-1., -1., -1.], dtype=float32)",
+      "high": "array([1., 1., 1.], dtype=float32)",
+      "bounded_below": "array([ True,  True,  True])",
+      "bounded_above": "array([ True,  True,  True])",
+      "np_random": "RandomState(MT19937) at 0x7FE53DB726B0",
+      "$type": "akro.box.Box"
+    },
+    "_observation_space": {
+      "dtype": "dtype('float32')",
+      "shape": [
+        11
+      ],
+      "low": "array([-inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf],\n      dtype=float32)",
+      "high": "array([inf, inf, inf, inf, inf, inf, inf, inf, inf, inf, inf],\n      dtype=float32)",
+      "bounded_below": "array([False, False, False, False, False, False, False, False, False,\n       False, False])",
+      "bounded_above": "array([False, False, False, False, False, False, False, False, False,\n       False, False])",
+      "np_random": "RandomState(MT19937) at 0x7FE53DB727C0",
+      "$type": "akro.box.Box"
+    },
+    "_spec": {
+      "max_episode_length": 1000,
+      "input_space": {
+        "dtype": "dtype('float32')",
+        "shape": [
+          3
+        ],
+        "low": "array([-1., -1., -1.], dtype=float32)",
+        "high": "array([1., 1., 1.], dtype=float32)",
+        "bounded_below": "array([ True,  True,  True])",
+        "bounded_above": "array([ True,  True,  True])",
+        "np_random": "RandomState(MT19937) at 0x7FE53DB726B0",
+        "$type": "akro.box.Box"
+      },
+      "output_space": {
+        "dtype": "dtype('float32')",
+        "shape": [
+          11
+        ],
+        "low": "array([-inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf],\n      dtype=float32)",
+        "high": "array([inf, inf, inf, inf, inf, inf, inf, inf, inf, inf, inf],\n      dtype=float32)",
+        "bounded_below": "array([False, False, False, False, False, False, False, False, False,\n       False, False])",
+        "bounded_above": "array([False, False, False, False, False, False, False, False, False,\n       False, False])",
+        "np_random": "RandomState(MT19937) at 0x7FE53DB727C0",
+        "$type": "akro.box.Box"
+      },
+      "$type": "garage._environment.EnvSpec"
+    },
+    "_env_info": "None",
+    "$type": "garage.envs.gym_env.GymEnv"
+  },
+  "_sampler": {
+    "_worker_factory": {
+      "n_workers": 4,
+      "_seed": "None",
+      "_max_episode_length": 1000,
+      "_worker_class": {
+        "$typename": "garage.sampler.default_worker.DefaultWorker"
+      },
+      "_worker_args": {},
+      "$type": "garage.sampler.worker_factory.WorkerFactory"
+    },
+    "_sampler_worker": {
+      "__ray_metadata__": "<ray.actor.ActorClassMetadata object at 0x7fe53cc25810>",
+      "$type": "garage.sampler.ray_sampler.ActorClass(SamplerWorker)"
+    },
+    "_agents": {
+      "training": true,
+      "_parameters": {},
+      "_buffers": {},
+      "_non_persistent_buffers_set": [],
+      "_backward_hooks": {},
+      "_forward_hooks": {},
+      "_forward_pre_hooks": {},
+      "_state_dict_hooks": {},
+      "_load_state_dict_pre_hooks": {},
+      "_modules": {
+        "_module": {
+          "training": true,
+          "_parameters": {
+            "_init_std": {
+              "$type": "torch.nn.parameter.Parameter"
+            }
+          },
+          "_buffers": {
+            "min_std_param": {
+              "$type": "torch.Tensor"
+            },
+            "max_std_param": {
+              "$type": "torch.Tensor"
+            }
+          },
+          "_non_persistent_buffers_set": [],
+          "_backward_hooks": {},
+          "_forward_hooks": {},
+          "_forward_pre_hooks": {},
+          "_state_dict_hooks": {},
+          "_load_state_dict_pre_hooks": {},
+          "_modules": {
+            "_shared_mean_log_std_network": {
+              "training": true,
+              "_parameters": {},
+              "_buffers": {},
+              "_non_persistent_buffers_set": [],
+              "_backward_hooks": {},
+              "_forward_hooks": {},
+              "_forward_pre_hooks": {},
+              "_state_dict_hooks": {},
+              "_load_state_dict_pre_hooks": {},
+              "_modules": {
+                "_layers": {
+                  "training": true,
+                  "_parameters": {},
+                  "_buffers": {},
+                  "_non_persistent_buffers_set": [],
+                  "_backward_hooks": {},
+                  "_forward_hooks": {},
+                  "_forward_pre_hooks": {},
+                  "_state_dict_hooks": {},
+                  "_load_state_dict_pre_hooks": {},
+                  "_modules": {
+                    "0": {
+                      "training": true,
+                      "_parameters": {},
+                      "_buffers": {},
+                      "_non_persistent_buffers_set": [],
+                      "_backward_hooks": {},
+                      "_forward_hooks": {},
+                      "_forward_pre_hooks": {},
+                      "_state_dict_hooks": {},
+                      "_load_state_dict_pre_hooks": {},
+                      "_modules": {
+                        "linear": {
+                          "training": true,
+                          "_parameters": {
+                            "weight": {
+                              "$type": "torch.nn.parameter.Parameter"
+                            },
+                            "bias": {
+                              "$type": "torch.nn.parameter.Parameter"
+                            }
+                          },
+                          "_buffers": {},
+                          "_non_persistent_buffers_set": [],
+                          "_backward_hooks": {},
+                          "_forward_hooks": {},
+                          "_forward_pre_hooks": {},
+                          "_state_dict_hooks": {},
+                          "_load_state_dict_pre_hooks": {},
+                          "_modules": {},
+                          "in_features": 11.0,
+                          "out_features": 64,
+                          "$type": "torch.nn.modules.linear.Linear"
+                        },
+                        "non_linearity": {
+                          "training": true,
+                          "_parameters": {},
+                          "_buffers": {},
+                          "_non_persistent_buffers_set": [],
+                          "_backward_hooks": {},
+                          "_forward_hooks": {},
+                          "_forward_pre_hooks": {},
+                          "_state_dict_hooks": {},
+                          "_load_state_dict_pre_hooks": {},
+                          "_modules": {},
+                          "module": "<built-in method tanh of type object at 0x7fe5c5f66700>",
+                          "$type": "garage.torch._functions.NonLinearity"
+                        }
+                      },
+                      "$type": "torch.nn.modules.container.Sequential"
+                    },
+                    "1": {
+                      "training": true,
+                      "_parameters": {},
+                      "_buffers": {},
+                      "_non_persistent_buffers_set": [],
+                      "_backward_hooks": {},
+                      "_forward_hooks": {},
+                      "_forward_pre_hooks": {},
+                      "_state_dict_hooks": {},
+                      "_load_state_dict_pre_hooks": {},
+                      "_modules": {
+                        "linear": {
+                          "training": true,
+                          "_parameters": {
+                            "weight": {
+                              "$type": "torch.nn.parameter.Parameter"
+                            },
+                            "bias": {
+                              "$type": "torch.nn.parameter.Parameter"
+                            }
+                          },
+                          "_buffers": {},
+                          "_non_persistent_buffers_set": [],
+                          "_backward_hooks": {},
+                          "_forward_hooks": {},
+                          "_forward_pre_hooks": {},
+                          "_state_dict_hooks": {},
+                          "_load_state_dict_pre_hooks": {},
+                          "_modules": {},
+                          "in_features": 64,
+                          "out_features": 64,
+                          "$type": "torch.nn.modules.linear.Linear"
+                        },
+                        "non_linearity": {
+                          "training": true,
+                          "_parameters": {},
+                          "_buffers": {},
+                          "_non_persistent_buffers_set": [],
+                          "_backward_hooks": {},
+                          "_forward_hooks": {},
+                          "_forward_pre_hooks": {},
+                          "_state_dict_hooks": {},
+                          "_load_state_dict_pre_hooks": {},
+                          "_modules": {},
+                          "module": "<built-in method tanh of type object at 0x7fe5c5f66700>",
+                          "$type": "garage.torch._functions.NonLinearity"
+                        }
+                      },
+                      "$type": "torch.nn.modules.container.Sequential"
+                    }
+                  },
+                  "$type": "torch.nn.modules.container.ModuleList"
+                },
+                "_output_layers": {
+                  "training": true,
+                  "_parameters": {},
+                  "_buffers": {},
+                  "_non_persistent_buffers_set": [],
+                  "_backward_hooks": {},
+                  "_forward_hooks": {},
+                  "_forward_pre_hooks": {},
+                  "_state_dict_hooks": {},
+                  "_load_state_dict_pre_hooks": {},
+                  "_modules": {
+                    "0": {
+                      "training": true,
+                      "_parameters": {},
+                      "_buffers": {},
+                      "_non_persistent_buffers_set": [],
+                      "_backward_hooks": {},
+                      "_forward_hooks": {},
+                      "_forward_pre_hooks": {},
+                      "_state_dict_hooks": {},
+                      "_load_state_dict_pre_hooks": {},
+                      "_modules": {
+                        "linear": {
+                          "training": true,
+                          "_parameters": {
+                            "weight": {
+                              "$type": "torch.nn.parameter.Parameter"
+                            },
+                            "bias": {
+                              "$type": "torch.nn.parameter.Parameter"
+                            }
+                          },
+                          "_buffers": {},
+                          "_non_persistent_buffers_set": [],
+                          "_backward_hooks": {},
+                          "_forward_hooks": {},
+                          "_forward_pre_hooks": {},
+                          "_state_dict_hooks": {},
+                          "_load_state_dict_pre_hooks": {},
+                          "_modules": {},
+                          "in_features": 64,
+                          "out_features": 3.0,
+                          "$type": "torch.nn.modules.linear.Linear"
+                        }
+                      },
+                      "$type": "torch.nn.modules.container.Sequential"
+                    },
+                    "1": {
+                      "training": true,
+                      "_parameters": {},
+                      "_buffers": {},
+                      "_non_persistent_buffers_set": [],
+                      "_backward_hooks": {},
+                      "_forward_hooks": {},
+                      "_forward_pre_hooks": {},
+                      "_state_dict_hooks": {},
+                      "_load_state_dict_pre_hooks": {},
+                      "_modules": {
+                        "linear": {
+                          "training": true,
+                          "_parameters": {
+                            "weight": {
+                              "$type": "torch.nn.parameter.Parameter"
+                            },
+                            "bias": {
+                              "$type": "torch.nn.parameter.Parameter"
+                            }
+                          },
+                          "_buffers": {},
+                          "_non_persistent_buffers_set": [],
+                          "_backward_hooks": {},
+                          "_forward_hooks": {},
+                          "_forward_pre_hooks": {},
+                          "_state_dict_hooks": {},
+                          "_load_state_dict_pre_hooks": {},
+                          "_modules": {},
+                          "in_features": 64,
+                          "out_features": 3.0,
+                          "$type": "torch.nn.modules.linear.Linear"
+                        }
+                      },
+                      "$type": "torch.nn.modules.container.Sequential"
+                    }
+                  },
+                  "$type": "torch.nn.modules.container.ModuleList"
+                }
+              },
+              "$type": "garage.torch.modules.multi_headed_mlp_module.MultiHeadedMLPModule"
+            }
+          },
+          "_input_dim": 11.0,
+          "_hidden_sizes": [
+            64,
+            64
+          ],
+          "_action_dim": 3.0,
+          "_learn_std": true,
+          "_std_hidden_sizes": [
+            32,
+            32
+          ],
+          "_min_std": 2.061153622438558e-09,
+          "_max_std": 7.38905609893065,
+          "_std_hidden_nonlinearity": "<built-in method tanh of type object at 0x7fe5c5f66700>",
+          "_std_hidden_w_init": {
+            "$type": "builtins.function"
+          },
+          "_std_hidden_b_init": {
+            "$type": "builtins.function"
+          },
+          "_std_output_nonlinearity": "None",
+          "_std_output_w_init": {
+            "$type": "builtins.function"
+          },
+          "_std_parameterization": "exp",
+          "_hidden_nonlinearity": "<built-in method tanh of type object at 0x7fe5c5f66700>",
+          "_hidden_w_init": {
+            "$type": "builtins.function"
+          },
+          "_hidden_b_init": {
+            "$type": "builtins.function"
+          },
+          "_output_nonlinearity": "None",
+          "_output_w_init": {
+            "$type": "builtins.function"
+          },
+          "_output_b_init": {
+            "$type": "builtins.function"
+          },
+          "_layer_normalization": false,
+          "_norm_dist_class": {
+            "$typename": "garage.torch.distributions.tanh_normal.TanhNormal"
+          },
+          "_min_std_param": {
+            "$type": "torch.Tensor"
+          },
+          "_max_std_param": {
+            "$type": "torch.Tensor"
+          },
+          "$type": "garage.torch.modules.gaussian_mlp_module.GaussianMLPTwoHeadedModule"
+        }
+      },
+      "_env_spec": {
+        "max_episode_length": 1000,
+        "input_space": {
+          "dtype": "dtype('float32')",
+          "shape": [
+            3
+          ],
+          "low": "array([-1., -1., -1.], dtype=float32)",
+          "high": "array([1., 1., 1.], dtype=float32)",
+          "bounded_below": "array([ True,  True,  True])",
+          "bounded_above": "array([ True,  True,  True])",
+          "np_random": "RandomState(MT19937) at 0x7FE53DB726B0",
+          "$type": "akro.box.Box"
+        },
+        "output_space": {
+          "dtype": "dtype('float32')",
+          "shape": [
+            11
+          ],
+          "low": "array([-inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf],\n      dtype=float32)",
+          "high": "array([inf, inf, inf, inf, inf, inf, inf, inf, inf, inf, inf],\n      dtype=float32)",
+          "bounded_below": "array([False, False, False, False, False, False, False, False, False,\n       False, False])",
+          "bounded_above": "array([False, False, False, False, False, False, False, False, False,\n       False, False])",
+          "np_random": "RandomState(MT19937) at 0x7FE53DB727C0",
+          "$type": "akro.box.Box"
+        },
+        "$type": "garage._environment.EnvSpec"
+      },
+      "_name": "TanhGaussianPolicy",
+      "_obs_dim": 11.0,
+      "_action_dim": 3.0,
+      "$type": "garage.torch.policies.tanh_gaussian_mlp_policy.TanhGaussianMLPPolicy"
+    },
+    "_envs": [
+      {
+        "_env": {
+          "env": {
+            "frame_skip": 4,
+            "model": "<mujoco_py.cymj.PyMjModel object at 0x559b6a17d7a0>",
+            "sim": "<mujoco_py.cymj.MjSim object at 0x7fe53db007a0>",
+            "data": "<mujoco_py.cymj.PyMjData object at 0x559b6a172c10>",
+            "viewer": "None",
+            "_viewers": {},
+            "metadata": {
+              "render.modes": [
+                "human",
+                "rgb_array",
+                "depth_array"
+              ],
+              "video.frames_per_second": 125
+            },
+            "init_qpos": "array([0.  , 1.25, 0.  , 0.  , 0.  , 0.  ])",
+            "init_qvel": "array([0., 0., 0., 0., 0., 0.])",
+            "action_space": {
+              "dtype": "dtype('float32')",
+              "shape": [
+                3
+              ],
+              "low": "array([-1., -1., -1.], dtype=float32)",
+              "high": "array([1., 1., 1.], dtype=float32)",
+              "bounded_below": "array([ True,  True,  True])",
+              "bounded_above": "array([ True,  True,  True])",
+              "np_random": "RandomState(MT19937) at 0x7FE53DB72380",
+              "$type": "gym.spaces.box.Box"
+            },
+            "observation_space": {
+              "dtype": "dtype('float64')",
+              "shape": [
+                11
+              ],
+              "low": "array([-inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf])",
+              "high": "array([inf, inf, inf, inf, inf, inf, inf, inf, inf, inf, inf])",
+              "bounded_below": "array([False, False, False, False, False, False, False, False, False,\n       False, False])",
+              "bounded_above": "array([False, False, False, False, False, False, False, False, False,\n       False, False])",
+              "np_random": "RandomState(MT19937) at 0x7FE53DB72490",
+              "$type": "gym.spaces.box.Box"
+            },
+            "np_random": "RandomState(MT19937) at 0x7FE53DB725A0",
+            "_ezpickle_args": [],
+            "_ezpickle_kwargs": {},
+            "spec": {
+              "id": "Hopper-v2",
+              "entry_point": "gym.envs.mujoco:HopperEnv",
+              "reward_threshold": 3800.0,
+              "nondeterministic": false,
+              "max_episode_steps": 1000,
+              "_kwargs": {},
+              "_env_name": "Hopper",
+              "$type": "gym.envs.registration.EnvSpec"
+            },
+            "$type": "gym.envs.mujoco.hopper.HopperEnv"
+          },
+          "action_space": {
+            "dtype": "dtype('float32')",
+            "shape": [
+              3
+            ],
+            "low": "array([-1., -1., -1.], dtype=float32)",
+            "high": "array([1., 1., 1.], dtype=float32)",
+            "bounded_below": "array([ True,  True,  True])",
+            "bounded_above": "array([ True,  True,  True])",
+            "np_random": "RandomState(MT19937) at 0x7FE53DB72380",
+            "$type": "gym.spaces.box.Box"
+          },
+          "observation_space": {
+            "dtype": "dtype('float64')",
+            "shape": [
+              11
+            ],
+            "low": "array([-inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf])",
+            "high": "array([inf, inf, inf, inf, inf, inf, inf, inf, inf, inf, inf])",
+            "bounded_below": "array([False, False, False, False, False, False, False, False, False,\n       False, False])",
+            "bounded_above": "array([False, False, False, False, False, False, False, False, False,\n       False, False])",
+            "np_random": "RandomState(MT19937) at 0x7FE53DB72490",
+            "$type": "gym.spaces.box.Box"
+          },
+          "reward_range": [
+            -Infinity,
+            Infinity
+          ],
+          "metadata": {
+            "render.modes": [
+              "human",
+              "rgb_array",
+              "depth_array"
+            ],
+            "video.frames_per_second": 125
+          },
+          "_max_episode_steps": 1000,
+          "_elapsed_steps": "None",
+          "$type": "gym.wrappers.time_limit.TimeLimit"
+        },
+        "_max_episode_length": 1000,
+        "_render_modes": [
+          "human",
+          "rgb_array",
+          "depth_array"
+        ],
+        "_step_cnt": "None",
+        "_visualize": false,
+        "_action_space": {
+          "dtype": "dtype('float32')",
+          "shape": [
+            3
+          ],
+          "low": "array([-1., -1., -1.], dtype=float32)",
+          "high": "array([1., 1., 1.], dtype=float32)",
+          "bounded_below": "array([ True,  True,  True])",
+          "bounded_above": "array([ True,  True,  True])",
+          "np_random": "RandomState(MT19937) at 0x7FE53DB726B0",
+          "$type": "akro.box.Box"
+        },
+        "_observation_space": {
+          "dtype": "dtype('float32')",
+          "shape": [
+            11
+          ],
+          "low": "array([-inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf],\n      dtype=float32)",
+          "high": "array([inf, inf, inf, inf, inf, inf, inf, inf, inf, inf, inf],\n      dtype=float32)",
+          "bounded_below": "array([False, False, False, False, False, False, False, False, False,\n       False, False])",
+          "bounded_above": "array([False, False, False, False, False, False, False, False, False,\n       False, False])",
+          "np_random": "RandomState(MT19937) at 0x7FE53DB727C0",
+          "$type": "akro.box.Box"
+        },
+        "_spec": {
+          "max_episode_length": 1000,
+          "input_space": {
+            "dtype": "dtype('float32')",
+            "shape": [
+              3
+            ],
+            "low": "array([-1., -1., -1.], dtype=float32)",
+            "high": "array([1., 1., 1.], dtype=float32)",
+            "bounded_below": "array([ True,  True,  True])",
+            "bounded_above": "array([ True,  True,  True])",
+            "np_random": "RandomState(MT19937) at 0x7FE53DB726B0",
+            "$type": "akro.box.Box"
+          },
+          "output_space": {
+            "dtype": "dtype('float32')",
+            "shape": [
+              11
+            ],
+            "low": "array([-inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf],\n      dtype=float32)",
+            "high": "array([inf, inf, inf, inf, inf, inf, inf, inf, inf, inf, inf],\n      dtype=float32)",
+            "bounded_below": "array([False, False, False, False, False, False, False, False, False,\n       False, False])",
+            "bounded_above": "array([False, False, False, False, False, False, False, False, False,\n       False, False])",
+            "np_random": "RandomState(MT19937) at 0x7FE53DB727C0",
+            "$type": "akro.box.Box"
+          },
+          "$type": "garage._environment.EnvSpec"
+        },
+        "_env_info": "None",
+        "$type": "garage.envs.gym_env.GymEnv"
+      },
+      {
+        "_env": {
+          "env": {
+            "frame_skip": 4,
+            "model": "<mujoco_py.cymj.PyMjModel object at 0x559b6a17d7a0>",
+            "sim": "<mujoco_py.cymj.MjSim object at 0x7fe53db007a0>",
+            "data": "<mujoco_py.cymj.PyMjData object at 0x559b6a172c10>",
+            "viewer": "None",
+            "_viewers": {},
+            "metadata": {
+              "render.modes": [
+                "human",
+                "rgb_array",
+                "depth_array"
+              ],
+              "video.frames_per_second": 125
+            },
+            "init_qpos": "array([0.  , 1.25, 0.  , 0.  , 0.  , 0.  ])",
+            "init_qvel": "array([0., 0., 0., 0., 0., 0.])",
+            "action_space": {
+              "dtype": "dtype('float32')",
+              "shape": [
+                3
+              ],
+              "low": "array([-1., -1., -1.], dtype=float32)",
+              "high": "array([1., 1., 1.], dtype=float32)",
+              "bounded_below": "array([ True,  True,  True])",
+              "bounded_above": "array([ True,  True,  True])",
+              "np_random": "RandomState(MT19937) at 0x7FE53DB72380",
+              "$type": "gym.spaces.box.Box"
+            },
+            "observation_space": {
+              "dtype": "dtype('float64')",
+              "shape": [
+                11
+              ],
+              "low": "array([-inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf])",
+              "high": "array([inf, inf, inf, inf, inf, inf, inf, inf, inf, inf, inf])",
+              "bounded_below": "array([False, False, False, False, False, False, False, False, False,\n       False, False])",
+              "bounded_above": "array([False, False, False, False, False, False, False, False, False,\n       False, False])",
+              "np_random": "RandomState(MT19937) at 0x7FE53DB72490",
+              "$type": "gym.spaces.box.Box"
+            },
+            "np_random": "RandomState(MT19937) at 0x7FE53DB725A0",
+            "_ezpickle_args": [],
+            "_ezpickle_kwargs": {},
+            "spec": {
+              "id": "Hopper-v2",
+              "entry_point": "gym.envs.mujoco:HopperEnv",
+              "reward_threshold": 3800.0,
+              "nondeterministic": false,
+              "max_episode_steps": 1000,
+              "_kwargs": {},
+              "_env_name": "Hopper",
+              "$type": "gym.envs.registration.EnvSpec"
+            },
+            "$type": "gym.envs.mujoco.hopper.HopperEnv"
+          },
+          "action_space": {
+            "dtype": "dtype('float32')",
+            "shape": [
+              3
+            ],
+            "low": "array([-1., -1., -1.], dtype=float32)",
+            "high": "array([1., 1., 1.], dtype=float32)",
+            "bounded_below": "array([ True,  True,  True])",
+            "bounded_above": "array([ True,  True,  True])",
+            "np_random": "RandomState(MT19937) at 0x7FE53DB72380",
+            "$type": "gym.spaces.box.Box"
+          },
+          "observation_space": {
+            "dtype": "dtype('float64')",
+            "shape": [
+              11
+            ],
+            "low": "array([-inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf])",
+            "high": "array([inf, inf, inf, inf, inf, inf, inf, inf, inf, inf, inf])",
+            "bounded_below": "array([False, False, False, False, False, False, False, False, False,\n       False, False])",
+            "bounded_above": "array([False, False, False, False, False, False, False, False, False,\n       False, False])",
+            "np_random": "RandomState(MT19937) at 0x7FE53DB72490",
+            "$type": "gym.spaces.box.Box"
+          },
+          "reward_range": [
+            -Infinity,
+            Infinity
+          ],
+          "metadata": {
+            "render.modes": [
+              "human",
+              "rgb_array",
+              "depth_array"
+            ],
+            "video.frames_per_second": 125
+          },
+          "_max_episode_steps": 1000,
+          "_elapsed_steps": "None",
+          "$type": "gym.wrappers.time_limit.TimeLimit"
+        },
+        "_max_episode_length": 1000,
+        "_render_modes": [
+          "human",
+          "rgb_array",
+          "depth_array"
+        ],
+        "_step_cnt": "None",
+        "_visualize": false,
+        "_action_space": {
+          "dtype": "dtype('float32')",
+          "shape": [
+            3
+          ],
+          "low": "array([-1., -1., -1.], dtype=float32)",
+          "high": "array([1., 1., 1.], dtype=float32)",
+          "bounded_below": "array([ True,  True,  True])",
+          "bounded_above": "array([ True,  True,  True])",
+          "np_random": "RandomState(MT19937) at 0x7FE53DB726B0",
+          "$type": "akro.box.Box"
+        },
+        "_observation_space": {
+          "dtype": "dtype('float32')",
+          "shape": [
+            11
+          ],
+          "low": "array([-inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf],\n      dtype=float32)",
+          "high": "array([inf, inf, inf, inf, inf, inf, inf, inf, inf, inf, inf],\n      dtype=float32)",
+          "bounded_below": "array([False, False, False, False, False, False, False, False, False,\n       False, False])",
+          "bounded_above": "array([False, False, False, False, False, False, False, False, False,\n       False, False])",
+          "np_random": "RandomState(MT19937) at 0x7FE53DB727C0",
+          "$type": "akro.box.Box"
+        },
+        "_spec": {
+          "max_episode_length": 1000,
+          "input_space": {
+            "dtype": "dtype('float32')",
+            "shape": [
+              3
+            ],
+            "low": "array([-1., -1., -1.], dtype=float32)",
+            "high": "array([1., 1., 1.], dtype=float32)",
+            "bounded_below": "array([ True,  True,  True])",
+            "bounded_above": "array([ True,  True,  True])",
+            "np_random": "RandomState(MT19937) at 0x7FE53DB726B0",
+            "$type": "akro.box.Box"
+          },
+          "output_space": {
+            "dtype": "dtype('float32')",
+            "shape": [
+              11
+            ],
+            "low": "array([-inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf],\n      dtype=float32)",
+            "high": "array([inf, inf, inf, inf, inf, inf, inf, inf, inf, inf, inf],\n      dtype=float32)",
+            "bounded_below": "array([False, False, False, False, False, False, False, False, False,\n       False, False])",
+            "bounded_above": "array([False, False, False, False, False, False, False, False, False,\n       False, False])",
+            "np_random": "RandomState(MT19937) at 0x7FE53DB727C0",
+            "$type": "akro.box.Box"
+          },
+          "$type": "garage._environment.EnvSpec"
+        },
+        "_env_info": "None",
+        "$type": "garage.envs.gym_env.GymEnv"
+      },
+      {
+        "_env": {
+          "env": {
+            "frame_skip": 4,
+            "model": "<mujoco_py.cymj.PyMjModel object at 0x559b6a17d7a0>",
+            "sim": "<mujoco_py.cymj.MjSim object at 0x7fe53db007a0>",
+            "data": "<mujoco_py.cymj.PyMjData object at 0x559b6a172c10>",
+            "viewer": "None",
+            "_viewers": {},
+            "metadata": {
+              "render.modes": [
+                "human",
+                "rgb_array",
+                "depth_array"
+              ],
+              "video.frames_per_second": 125
+            },
+            "init_qpos": "array([0.  , 1.25, 0.  , 0.  , 0.  , 0.  ])",
+            "init_qvel": "array([0., 0., 0., 0., 0., 0.])",
+            "action_space": {
+              "dtype": "dtype('float32')",
+              "shape": [
+                3
+              ],
+              "low": "array([-1., -1., -1.], dtype=float32)",
+              "high": "array([1., 1., 1.], dtype=float32)",
+              "bounded_below": "array([ True,  True,  True])",
+              "bounded_above": "array([ True,  True,  True])",
+              "np_random": "RandomState(MT19937) at 0x7FE53DB72380",
+              "$type": "gym.spaces.box.Box"
+            },
+            "observation_space": {
+              "dtype": "dtype('float64')",
+              "shape": [
+                11
+              ],
+              "low": "array([-inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf])",
+              "high": "array([inf, inf, inf, inf, inf, inf, inf, inf, inf, inf, inf])",
+              "bounded_below": "array([False, False, False, False, False, False, False, False, False,\n       False, False])",
+              "bounded_above": "array([False, False, False, False, False, False, False, False, False,\n       False, False])",
+              "np_random": "RandomState(MT19937) at 0x7FE53DB72490",
+              "$type": "gym.spaces.box.Box"
+            },
+            "np_random": "RandomState(MT19937) at 0x7FE53DB725A0",
+            "_ezpickle_args": [],
+            "_ezpickle_kwargs": {},
+            "spec": {
+              "id": "Hopper-v2",
+              "entry_point": "gym.envs.mujoco:HopperEnv",
+              "reward_threshold": 3800.0,
+              "nondeterministic": false,
+              "max_episode_steps": 1000,
+              "_kwargs": {},
+              "_env_name": "Hopper",
+              "$type": "gym.envs.registration.EnvSpec"
+            },
+            "$type": "gym.envs.mujoco.hopper.HopperEnv"
+          },
+          "action_space": {
+            "dtype": "dtype('float32')",
+            "shape": [
+              3
+            ],
+            "low": "array([-1., -1., -1.], dtype=float32)",
+            "high": "array([1., 1., 1.], dtype=float32)",
+            "bounded_below": "array([ True,  True,  True])",
+            "bounded_above": "array([ True,  True,  True])",
+            "np_random": "RandomState(MT19937) at 0x7FE53DB72380",
+            "$type": "gym.spaces.box.Box"
+          },
+          "observation_space": {
+            "dtype": "dtype('float64')",
+            "shape": [
+              11
+            ],
+            "low": "array([-inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf])",
+            "high": "array([inf, inf, inf, inf, inf, inf, inf, inf, inf, inf, inf])",
+            "bounded_below": "array([False, False, False, False, False, False, False, False, False,\n       False, False])",
+            "bounded_above": "array([False, False, False, False, False, False, False, False, False,\n       False, False])",
+            "np_random": "RandomState(MT19937) at 0x7FE53DB72490",
+            "$type": "gym.spaces.box.Box"
+          },
+          "reward_range": [
+            -Infinity,
+            Infinity
+          ],
+          "metadata": {
+            "render.modes": [
+              "human",
+              "rgb_array",
+              "depth_array"
+            ],
+            "video.frames_per_second": 125
+          },
+          "_max_episode_steps": 1000,
+          "_elapsed_steps": "None",
+          "$type": "gym.wrappers.time_limit.TimeLimit"
+        },
+        "_max_episode_length": 1000,
+        "_render_modes": [
+          "human",
+          "rgb_array",
+          "depth_array"
+        ],
+        "_step_cnt": "None",
+        "_visualize": false,
+        "_action_space": {
+          "dtype": "dtype('float32')",
+          "shape": [
+            3
+          ],
+          "low": "array([-1., -1., -1.], dtype=float32)",
+          "high": "array([1., 1., 1.], dtype=float32)",
+          "bounded_below": "array([ True,  True,  True])",
+          "bounded_above": "array([ True,  True,  True])",
+          "np_random": "RandomState(MT19937) at 0x7FE53DB726B0",
+          "$type": "akro.box.Box"
+        },
+        "_observation_space": {
+          "dtype": "dtype('float32')",
+          "shape": [
+            11
+          ],
+          "low": "array([-inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf],\n      dtype=float32)",
+          "high": "array([inf, inf, inf, inf, inf, inf, inf, inf, inf, inf, inf],\n      dtype=float32)",
+          "bounded_below": "array([False, False, False, False, False, False, False, False, False,\n       False, False])",
+          "bounded_above": "array([False, False, False, False, False, False, False, False, False,\n       False, False])",
+          "np_random": "RandomState(MT19937) at 0x7FE53DB727C0",
+          "$type": "akro.box.Box"
+        },
+        "_spec": {
+          "max_episode_length": 1000,
+          "input_space": {
+            "dtype": "dtype('float32')",
+            "shape": [
+              3
+            ],
+            "low": "array([-1., -1., -1.], dtype=float32)",
+            "high": "array([1., 1., 1.], dtype=float32)",
+            "bounded_below": "array([ True,  True,  True])",
+            "bounded_above": "array([ True,  True,  True])",
+            "np_random": "RandomState(MT19937) at 0x7FE53DB726B0",
+            "$type": "akro.box.Box"
+          },
+          "output_space": {
+            "dtype": "dtype('float32')",
+            "shape": [
+              11
+            ],
+            "low": "array([-inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf],\n      dtype=float32)",
+            "high": "array([inf, inf, inf, inf, inf, inf, inf, inf, inf, inf, inf],\n      dtype=float32)",
+            "bounded_below": "array([False, False, False, False, False, False, False, False, False,\n       False, False])",
+            "bounded_above": "array([False, False, False, False, False, False, False, False, False,\n       False, False])",
+            "np_random": "RandomState(MT19937) at 0x7FE53DB727C0",
+            "$type": "akro.box.Box"
+          },
+          "$type": "garage._environment.EnvSpec"
+        },
+        "_env_info": "None",
+        "$type": "garage.envs.gym_env.GymEnv"
+      },
+      {
+        "_env": {
+          "env": {
+            "frame_skip": 4,
+            "model": "<mujoco_py.cymj.PyMjModel object at 0x559b6a17d7a0>",
+            "sim": "<mujoco_py.cymj.MjSim object at 0x7fe53db007a0>",
+            "data": "<mujoco_py.cymj.PyMjData object at 0x559b6a172c10>",
+            "viewer": "None",
+            "_viewers": {},
+            "metadata": {
+              "render.modes": [
+                "human",
+                "rgb_array",
+                "depth_array"
+              ],
+              "video.frames_per_second": 125
+            },
+            "init_qpos": "array([0.  , 1.25, 0.  , 0.  , 0.  , 0.  ])",
+            "init_qvel": "array([0., 0., 0., 0., 0., 0.])",
+            "action_space": {
+              "dtype": "dtype('float32')",
+              "shape": [
+                3
+              ],
+              "low": "array([-1., -1., -1.], dtype=float32)",
+              "high": "array([1., 1., 1.], dtype=float32)",
+              "bounded_below": "array([ True,  True,  True])",
+              "bounded_above": "array([ True,  True,  True])",
+              "np_random": "RandomState(MT19937) at 0x7FE53DB72380",
+              "$type": "gym.spaces.box.Box"
+            },
+            "observation_space": {
+              "dtype": "dtype('float64')",
+              "shape": [
+                11
+              ],
+              "low": "array([-inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf])",
+              "high": "array([inf, inf, inf, inf, inf, inf, inf, inf, inf, inf, inf])",
+              "bounded_below": "array([False, False, False, False, False, False, False, False, False,\n       False, False])",
+              "bounded_above": "array([False, False, False, False, False, False, False, False, False,\n       False, False])",
+              "np_random": "RandomState(MT19937) at 0x7FE53DB72490",
+              "$type": "gym.spaces.box.Box"
+            },
+            "np_random": "RandomState(MT19937) at 0x7FE53DB725A0",
+            "_ezpickle_args": [],
+            "_ezpickle_kwargs": {},
+            "spec": {
+              "id": "Hopper-v2",
+              "entry_point": "gym.envs.mujoco:HopperEnv",
+              "reward_threshold": 3800.0,
+              "nondeterministic": false,
+              "max_episode_steps": 1000,
+              "_kwargs": {},
+              "_env_name": "Hopper",
+              "$type": "gym.envs.registration.EnvSpec"
+            },
+            "$type": "gym.envs.mujoco.hopper.HopperEnv"
+          },
+          "action_space": {
+            "dtype": "dtype('float32')",
+            "shape": [
+              3
+            ],
+            "low": "array([-1., -1., -1.], dtype=float32)",
+            "high": "array([1., 1., 1.], dtype=float32)",
+            "bounded_below": "array([ True,  True,  True])",
+            "bounded_above": "array([ True,  True,  True])",
+            "np_random": "RandomState(MT19937) at 0x7FE53DB72380",
+            "$type": "gym.spaces.box.Box"
+          },
+          "observation_space": {
+            "dtype": "dtype('float64')",
+            "shape": [
+              11
+            ],
+            "low": "array([-inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf])",
+            "high": "array([inf, inf, inf, inf, inf, inf, inf, inf, inf, inf, inf])",
+            "bounded_below": "array([False, False, False, False, False, False, False, False, False,\n       False, False])",
+            "bounded_above": "array([False, False, False, False, False, False, False, False, False,\n       False, False])",
+            "np_random": "RandomState(MT19937) at 0x7FE53DB72490",
+            "$type": "gym.spaces.box.Box"
+          },
+          "reward_range": [
+            -Infinity,
+            Infinity
+          ],
+          "metadata": {
+            "render.modes": [
+              "human",
+              "rgb_array",
+              "depth_array"
+            ],
+            "video.frames_per_second": 125
+          },
+          "_max_episode_steps": 1000,
+          "_elapsed_steps": "None",
+          "$type": "gym.wrappers.time_limit.TimeLimit"
+        },
+        "_max_episode_length": 1000,
+        "_render_modes": [
+          "human",
+          "rgb_array",
+          "depth_array"
+        ],
+        "_step_cnt": "None",
+        "_visualize": false,
+        "_action_space": {
+          "dtype": "dtype('float32')",
+          "shape": [
+            3
+          ],
+          "low": "array([-1., -1., -1.], dtype=float32)",
+          "high": "array([1., 1., 1.], dtype=float32)",
+          "bounded_below": "array([ True,  True,  True])",
+          "bounded_above": "array([ True,  True,  True])",
+          "np_random": "RandomState(MT19937) at 0x7FE53DB726B0",
+          "$type": "akro.box.Box"
+        },
+        "_observation_space": {
+          "dtype": "dtype('float32')",
+          "shape": [
+            11
+          ],
+          "low": "array([-inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf],\n      dtype=float32)",
+          "high": "array([inf, inf, inf, inf, inf, inf, inf, inf, inf, inf, inf],\n      dtype=float32)",
+          "bounded_below": "array([False, False, False, False, False, False, False, False, False,\n       False, False])",
+          "bounded_above": "array([False, False, False, False, False, False, False, False, False,\n       False, False])",
+          "np_random": "RandomState(MT19937) at 0x7FE53DB727C0",
+          "$type": "akro.box.Box"
+        },
+        "_spec": {
+          "max_episode_length": 1000,
+          "input_space": {
+            "dtype": "dtype('float32')",
+            "shape": [
+              3
+            ],
+            "low": "array([-1., -1., -1.], dtype=float32)",
+            "high": "array([1., 1., 1.], dtype=float32)",
+            "bounded_below": "array([ True,  True,  True])",
+            "bounded_above": "array([ True,  True,  True])",
+            "np_random": "RandomState(MT19937) at 0x7FE53DB726B0",
+            "$type": "akro.box.Box"
+          },
+          "output_space": {
+            "dtype": "dtype('float32')",
+            "shape": [
+              11
+            ],
+            "low": "array([-inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf, -inf],\n      dtype=float32)",
+            "high": "array([inf, inf, inf, inf, inf, inf, inf, inf, inf, inf, inf],\n      dtype=float32)",
+            "bounded_below": "array([False, False, False, False, False, False, False, False, False,\n       False, False])",
+            "bounded_above": "array([False, False, False, False, False, False, False, False, False,\n       False, False])",
+            "np_random": "RandomState(MT19937) at 0x7FE53DB727C0",
+            "$type": "akro.box.Box"
+          },
+          "$type": "garage._environment.EnvSpec"
+        },
+        "_env_info": "None",
+        "$type": "garage.envs.gym_env.GymEnv"
+      }
+    ],
+    "_all_workers": {
+      "0": "Actor(SamplerWorker,a67dc375e60ddd1a23bd3bb901000000)",
+      "1": "Actor(SamplerWorker,63964fa4841d4a2ecb45751801000000)",
+      "2": "Actor(SamplerWorker,69a6825d641b461327313d1c01000000)",
+      "3": "Actor(SamplerWorker,ee4e90da584ab0eb031f18d401000000)"
+    },
+    "_workers_started": true,
+    "total_env_steps": 0,
+    "$type": "garage.sampler.ray_sampler.RaySampler"
+  },
+  "_plotter": "None",
+  "_start_time": "None",
+  "_itr_start_time": "None",
+  "step_itr": "None",
+  "step_episode": "None",
+  "enable_logging": true,
+  "_n_workers": "None",
+  "_worker_class": "None",
+  "_worker_args": "None",
+  "save_mode": "light",
+  "return_mode": "average",
+  "return_attr": "Evaluation/AverageReturn",
+  "$type": "garage.shortrl.trainer.Trainer"
+}

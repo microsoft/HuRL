@@ -1,0 +1,40 @@
+{
+  "algo_name": "SAC",
+  "discount": 0.999,
+  "n_epochs": 200,
+  "env_name": "Hopper-v2",
+  "batch_size": 4000,
+  "heuristic": null,
+  "save_mode": "light",
+  "init_policy_fun": {
+    "$type": "builtins.function"
+  },
+  "lambd": 1.0,
+  "seed": 581079651,
+  "ls_rate": 1.0,
+  "ls_cls": "TanhLS",
+  "vae_loss_percentile": 99,
+  "policy_lr": 0.00025,
+  "value_lr": 0.0005,
+  "opt_minibatch_size": 128,
+  "opt_n_grad_steps": 1000,
+  "num_evaluation_episodes": 10,
+  "value_network_hidden_sizes": [
+    256,
+    256
+  ],
+  "policy_network_hidden_sizes": [
+    64,
+    64
+  ],
+  "n_workers": 4,
+  "use_gpu": false,
+  "sampler_mode": "ray",
+  "kl_constraint": 0.05,
+  "gae_lambda": 0.98,
+  "lr_clip_range": 0.2,
+  "eps_greed_decay_ratio": 1.0,
+  "target_update_tau": 0.02,
+  "reward_avg_rate": 0.001,
+  "ignore_shutdown": true
+}
